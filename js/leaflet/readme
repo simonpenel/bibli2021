@@ -1,0 +1,8 @@
+## THIS LINE SHOULD BE ADDED TO CSS FOR HAVING 
+## THE CORRERCT TILE BACKGROUND
+
+.leaflet-container {
+        background: #000000;
+        outline: 0;
+        }
+
