@@ -1,0 +1,338 @@
+body,html {
+	height:100%;
+}
+.divconnectionerror {
+    color: #bd0000;
+    font-size: 12px;
+    font-variant: small-caps;
+    font-weight: bold;
+    padding-top: 4px;
+}
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+.vcenter {
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+}
+#InfoFavo {
+	position: absolute;
+    width: 160px;
+    z-index: 10000;
+    top: 85%;
+    left: 50%;
+    margin: 0 0 0 -80px;
+    text-align: center;
+    background: #ffffffeb;
+    box-shadow: 0px 0px 5px 1px #a4a4a4;
+    padding: 2px;
+    font-size: 10px;
+	pointer-events: none;
+	color:grey;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 10px;
+    font-weight: 100;
+}
+#searchinput {
+	width: 100%;
+	padding-left:60px;
+	padding-right:30px;
+	font-size:18px;
+}
+#searchclear {
+	position: absolute;
+	right: 10px;
+	top: 0;
+	bottom: 0;
+	height: 20px;
+	margin: auto;
+	font-size: 20px;
+	cursor: pointer;
+	color: #585858;
+}
+#theMenu {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 12pt;				
+	font-weight: 600;
+}
+.menuentry {
+	padding-top:10px;
+	padding-bottom:10px;
+}
+#sandwich {
+	position: absolute;
+	left: 12px;
+	top: 0;
+	bottom: 0;
+	height: 30px;
+	margin: auto;
+	font-size: 30px;
+	cursor: pointer;
+	color: #585858;
+}
+.routestick {
+	box-shadow:1px 1px 2px 0.2px #656565;				
+	background:white;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.papernote {
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    padding: 40px;
+    /* margin-top: 15px; */
+    /* margin-bottom: 15px; */
+    color: #bfbfbf;
+    font-size: 12pt;
+}
+.papernote p {
+	margin-bottom: 6px;
+}
+.titlerow {
+	padding-bottom: 5px;
+	font-weight: bold;
+}
+.selectedlang {
+	/* style for the selected language*/
+    text-decoration: underline;
+}
+.langchoicemodal {
+	font-variant: small-caps;
+	color:#434343;
+}
+
+p {
+	margin-bottom:0px;
+}
+.display-table{
+	display: table;
+	table-layout: fixed;
+}.display-cell{
+	display: table-cell;
+	vertical-align: middle;
+	float: none;
+}
+.btn-circle {
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	padding: 10px 0;
+	font-size: 20px;
+	line-height: 1.42;
+	border-radius: 50%;
+	position:absolute;
+	background: #b4c3e0;
+	color:white;
+	border:0px;
+	bottom:20px;
+	right:15px;
+	box-shadow: 0 0 10px black;
+}
+.btn-circle2 {
+	width: 50px;
+	height: 50px;
+	padding:0px;
+	background-color: transparent;
+	text-align: center;
+	position:absolute;
+	border:0px;
+	bottom:20px;
+	left:15px;
+	box-shadow: 0 0 10px black;
+}
+.bottomleft {
+	background-color: transparent;
+	position:absolute;
+	border:0px;
+	bottom:20px;
+	left:15px;
+	z-index: 0;
+}
+span.sciname {
+	font-size:small;
+	color: #505050;
+	font-size:16px;
+}
+span.sciname b {
+	font-weight: bolder;
+	color:#272727;
+}
+
+span.scinameItalic {
+	font-style: italic;
+	font-size:16px;
+	color: #505050 ;	
+}
+span.scinameItalic b {
+	font-weight: bolder;
+	color:#272727;
+}
+
+span.commonname {
+	color: #505050 ;
+	font-size:13px;	
+}
+span.rank {
+	text-transform: uppercase;
+	font-weight: bolder;
+	font-size:x-small;
+	color: #989898 ;	
+}
+.ui-widget-content a {
+    text-decoration: none;
+}
+.ui-autocomplete {
+	background:white;
+	border:0px;
+	border-radius: 5px;
+	margin-top:25px;
+	max-height:72%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	box-shadow: 0 0 5px black;
+	position:absolute;
+}
+.swiper-container {
+	width: 100%;
+	height: 100%;
+	z-index:2000;
+	background: #000;
+	opacity: 0.95;
+	position:absolute;
+}
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	z-index:50;
+	background: #000;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+.favo i {
+	padding-left:5px;
+	color:"black";
+	font-size:13px;
+}
+.listfavo {
+	line-height: 1.3;
+	margin-bottom: 8px;
+	background-color:lightgrey;
+	background: linear-gradient(to right, white, #e4e4e4);
+}
+.swiper-pagination-bullet {
+	background: #ffffff;
+	opacity: .4;
+}
+.swiper-pagination-bullet-active {
+	opacity: 1;
+	background: #abb9d5;
+}
+a {
+	color:white;
+	text-decoration: underline;
+	font-weight: bold;
+}
+.men {
+	font-size: 14pt;
+	border-bottom: 1px solid #e5e5e5;
+}
+.btn-sq {
+	width: 100px !important;
+	height: 100px !important;
+	font-size: 10px;
+}
+
+/*******************************
+* MODAL AS LEFT/RIGHT SIDEBAR
+* Add "left" or "right" in modal parent div, after class="modal".
+* Get free snippets on bootpen.com
+*******************************/
+.modal-dialog {
+	margin-top:30px;
+}
+
+.modal.left .modal-dialog,
+.modal.right .modal-dialog {
+	position: fixed;
+	margin: auto;
+	width: 320px;
+	height: 100%;
+	-webkit-transform: translate3d(0%, 0, 0);
+	-ms-transform: translate3d(0%, 0, 0);
+	-o-transform: translate3d(0%, 0, 0);
+	transform: translate3d(0%, 0, 0);
+}
+
+.modal.left .modal-content,
+.modal.right .modal-content {
+	height: 100%;
+	overflow-y: auto;
+	-webkit-border-radius: 0px !important;
+	-moz-border-radius: 0px !important;
+	border-radius: 0px !important; 
+}
+
+.modal.left .modal-body,
+.modal.right .modal-body {
+	padding: 15px 15px 80px;
+}
+
+/*Left*/
+.modal.left.fade .modal-dialog{
+	left: -320px;
+	-webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+	-moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+	-o-transition: opacity 0.3s linear, left 0.3s ease-out;
+	transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.left.fade.in .modal-dialog{
+	left: 0;
+}
+.fa{
+	font-size: 23px;
+}
+
+/*STYLES FOR SHARE BUTTONS*/
+ul.share-buttons{
+	list-style: none;
+	padding: 0;
+}
+
+ul.share-buttons li{
+	display: inline;
+}
+
+ul.share-buttons .sr-only {
+	position: absolute;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0;
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+ul.share-buttons img{
+	width: 32px;
+}
+
+
+
+
+
+
+
