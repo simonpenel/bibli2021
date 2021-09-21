@@ -6,8 +6,7 @@ var borderSpecies = 20;  // Epaisseur entre les images d'especes
 var pictureDir = "img/speciesImages"  ; // Repertoire des images
 var indexLangue = 0;
 var barre_width_percent = 20;
-var selectedA = "";
-
+var selected = "";
 var arraySpecies = [
 		 [9606,    ["Homo sapiens","Humain"]],
 		 [10090,   ["Mus musculus","Souris grise"]],
@@ -38,7 +37,6 @@ mapSpecies.forEach(function(valeur, clef) {
   dicoSpecies[clef]=valeur;
 });
 
-
 // Affiche la barre qui contient les especes
 // -----------------------------------------
 function displaySpecies(largeur,hauteur){
@@ -58,7 +56,6 @@ function displaySpecies(largeur,hauteur){
     width = widthMax;
   }
   width = width - borderSpecies;
-
   var element= document.getElementById('barre');
   var divBarre = document.createElement("div");
   // divBarre.setAttribute("style", "position:absolute; width:" + largeur+ "px;");
@@ -76,7 +73,6 @@ function displaySpecies(largeur,hauteur){
 
   }
 }
-
 
 // Ajoute une espece dans la div posters
 // ------------------------------------
@@ -107,7 +103,6 @@ console.log(imageName,left,top,width);
   element.appendChild(divDescription);
 }
 
-
 // Efface les especes
 // ------------------
 function cleanBarre() {
@@ -118,7 +113,6 @@ function cleanBarre() {
 	var hauteur = window.innerHeight; // maj de la largeur en cas de modif
 	displaySpecies(largeur,hauteur);
 }
-
 
 // Action quand on clique sur une espece
 // -------------------------------------
@@ -131,26 +125,8 @@ function selectThis() {
   var URL_PREFIX_FINAL = "http://"+ServerAddress+"/solr/taxo/select?q=taxid:";
   var URL_SUFFIX = "&wt=json";
   var URL = URL_PREFIX_FINAL + taxidok + URL_SUFFIX;
-  // $.ajax({
-  //   url : URL,
-  //   success : function(data) {
-  //     map.removeLayer(SPfocus);
-  //     var docs = JSON.stringify(data.response.docs);
-  //     var jsonData = JSON.parse(docs);
-  //     if ($("#zoomTo").is(":checked")) map.flyTo(jsonData[0].coordinates, jsonData[0].zoom-1);
-  //     else map.setView(jsonData[0].coordinates, jsonData[0].zoom-1);
-  //     SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1})
-  //     SPfocus.on("click", function() {
-  //       markofun(taxidok, spnameok,commonnameok,rankok);
-  //     })
-  //     SPfocus.addTo(map);
-  //   },
-  //   dataType : 'jsonp',
-  //   jsonp : 'json.wrf'
-  // });
   var largeur = window.innerWidth; // maj de la largeur en cas de modif
   // Action sur lifemap
-    // C'est la 1ere espece
     taxidFrom = taxidok;
     $.ajax({
       url : URL,
@@ -170,14 +146,11 @@ function selectThis() {
       dataType : 'jsonp',
       jsonp : 'json.wrf'
     });
-    if (selectedA) {
-      degrise(selectedA);
+    if (selected) {
+      degrise(selected);
       }
-    // if (selectedB) {
-    //     degrise(selectedB);
-    //     }
     grise(this.id);  // On la grise
-    selectedA = this.id;
+    selected = this.id;
 }
 
 // Grise une division
