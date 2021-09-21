@@ -6,6 +6,7 @@ var borderSpecies = 20;  // Epaisseur entre les images d'especes
 var pictureDir = "img/speciesImages"  ; // Repertoire des images
 var indexLangue = 0;
 var barre_width_percent = 20;
+var selectedA = "";
 
 var arraySpecies = [
 		 [9606,    ["Homo sapiens","Humain"]],
@@ -43,8 +44,7 @@ mapSpecies.forEach(function(valeur, clef) {
 function displaySpecies(largeur,hauteur){
   var nbspec = data.length;
   var topSpecies = 20;
-  var leftSpecies =largeur - 200;
-	var nbcol = Math.floor( nbspec / 6 ) + 1;
+	var nbcol = Math.floor( nbspec / 7 ) + 1;
   var nblin = Math.floor( nbspec / nbcol) + 1;
 	var barre_width = barre_width_percent * largeur / 100 ;
 	var leftSpecies = largeur - barre_width ;
@@ -122,4 +122,80 @@ function cleanBarre() {
 
 // Action quand on clique sur une espece
 // -------------------------------------
-function selectThis() {}
+function selectThis() {
+	// micron.getEle("#me").interaction("bounce");
+  // micron.getEle("."+this.id).interaction("bounce");
+  // this.interaction("bounce");
+  var taxidok = this.id;
+  var URL_PREFIX = "http://"+ServerAddress+"/solr/taxo/suggesthandler?suggest.q=";
+  var URL_PREFIX_FINAL = "http://"+ServerAddress+"/solr/taxo/select?q=taxid:";
+  var URL_SUFFIX = "&wt=json";
+  var URL = URL_PREFIX_FINAL + taxidok + URL_SUFFIX;
+  // $.ajax({
+  //   url : URL,
+  //   success : function(data) {
+  //     map.removeLayer(SPfocus);
+  //     var docs = JSON.stringify(data.response.docs);
+  //     var jsonData = JSON.parse(docs);
+  //     if ($("#zoomTo").is(":checked")) map.flyTo(jsonData[0].coordinates, jsonData[0].zoom-1);
+  //     else map.setView(jsonData[0].coordinates, jsonData[0].zoom-1);
+  //     SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1})
+  //     SPfocus.on("click", function() {
+  //       markofun(taxidok, spnameok,commonnameok,rankok);
+  //     })
+  //     SPfocus.addTo(map);
+  //   },
+  //   dataType : 'jsonp',
+  //   jsonp : 'json.wrf'
+  // });
+  var largeur = window.innerWidth; // maj de la largeur en cas de modif
+  // Action sur lifemap
+    // C'est la 1ere espece
+    taxidFrom = taxidok;
+    $.ajax({
+      url : URL,
+      success : function(data) {
+        map.removeLayer(SPfocus);
+        var docs = JSON.stringify(data.response.docs);
+        var jsonData = JSON.parse(docs);
+        // if ($("#zoomTo").is(":checked")) map.flyTo(jsonData[0].coordinates, jsonData[0].zoom-1);
+        // else map.setView(jsonData[0].coordinates, jsonData[0].zoom-1);
+				map.flyTo(jsonData[0].coordinates, jsonData[0].zoom-1);
+        SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1})
+        SPfocus.on("click", function() {
+          markofun(taxidok, spnameok,commonnameok,rankok);
+        })
+        SPfocus.addTo(map);
+      },
+      dataType : 'jsonp',
+      jsonp : 'json.wrf'
+    });
+    if (selectedA) {
+      degrise(selectedA);
+      }
+    // if (selectedB) {
+    //     degrise(selectedB);
+    //     }
+    grise(this.id);  // On la grise
+    selectedA = this.id;
+}
+
+// Grise une division
+// ------------------
+function grise (imageName) {
+  var image = document.getElementById(imageName);
+  image.style.opacity = "0.5";
+  image.style.filter  = 'alpha(opacity=50)'; // IE fallback
+  var legend = document.getElementById("legend_"+imageName);
+  legend.style.color = "red";
+
+}
+// Degrise une division
+// ------------------
+function degrise (imageName) {
+  var image = document.getElementById(imageName);
+  image.style.opacity = "1.0";
+  image.style.filter  = 'alpha(opacity=100)'; // IE fallback
+  var legend = document.getElementById("legend_"+imageName);
+  legend.style.color = "yellow";
+}
