@@ -2,14 +2,18 @@
 Functions that deal with navigation and language switch
 */
 function onLoad() {
-	SwitchLanguage("int-fr","tree-fr","wiki-fr") // IMPORTANT!!! REMOVE FOR PROD ON PHONES
+	SwitchLanguage("int-fr","tree-fr","wiki-fr"); // IMPORTANT!!! REMOVE FOR PROD ON PHONES
 //	console.log(navigator.language)
 	//UNCOMMENT WHAT FOLLOWS WHEN THE FR VERSION IS READY. AND TERMINATE THE TRANSLATION (TODO)
 /*	document.addEventListener("deviceready", onDeviceReady, false);
 	document.addEventListener("offline", onOffline, false);
-	document.addEventListener("online", onOnline, false);
-*/}
-function onDeviceReady() {	    	
+	document.addEventListener("online", onOnline, false);displaySpecies(largeur,hauteur)
+*/
+  var largeur = window.innerWidth; // maj de la largeur en cas de modif
+	var hauteur = window.innerHeight; // maj de la largeur en cas de modif
+	displaySpecies(largeur,hauteur);
+}
+function onDeviceReady() {
 	// testCon();
 	flyvalue = window.localStorage.getItem("fly")
 	if ( flyvalue=== null) {
@@ -53,4 +57,3 @@ function onOnline() {
 	//connection
 	$(".divconnectionerror").hide()
 }
-
