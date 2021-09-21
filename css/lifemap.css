@@ -129,6 +129,12 @@ p {
 	left:20%;
 	box-shadow: 0 0 10px black;
 }
+#bottomcenter {
+	position: absolute;
+	width: 50px;
+	height: 50px;	
+	margin: 0 auto;
+}
 .btn-circle3 {
 	width: 50px;
 	height: 50px;
@@ -137,14 +143,15 @@ p {
 	font-size: 20px;
 	line-height: 1.42;
 	border-width: 2px;
-	border-color: red;
+	border-color: white;
 	border-radius: 50%;
 	position:absolute;
+	margin: auto;
 	background: #b4c3e0;
 	color:white;
-	border:0px;
 	bottom:30px;
-	left:10px;
+	left: 50%;
+	margin-left: -25px;
 	box-shadow: 0 0 10px black;
 }
 
