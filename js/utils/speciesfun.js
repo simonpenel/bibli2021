@@ -4,7 +4,7 @@
 var widthMax = 500; // Largeur max d'une vignette
 var borderSpecies = 20;  // Epaisseur entre les images d'especes
 var pictureDir = "img/speciesImages"  ; // Repertoire des images
-var indexLangue = 0;
+var indexLangue = 1;
 var barre_width_percent = 20;
 var selected = "";
 var arraySpecies = [
