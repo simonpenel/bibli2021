@@ -42,11 +42,12 @@ mapSpecies.forEach(function(valeur, clef) {
 function displaySpecies(largeur,hauteur){
   var nbspec = data.length;
   var topSpecies = 20;
-	var nbcol = Math.floor( nbspec / 7 ) + 1;
-  var nblin = Math.floor( nbspec / nbcol) + 1;
+	// var nbcol = Math.floor( nbspec / 7 ) + 1;
+  // var nblin = Math.floor( nbspec / nbcol) + 1;
 	var barre_width = barre_width_percent * largeur / 100 ;
+	var nblin = Math.floor(Math.sqrt(nbspec * hauteur / barre_width)) +1 ;
+	var nbcol = Math.floor( nbspec / nblin) + 1;
 	var leftSpecies = largeur - barre_width ;
-
   var width = Math.floor(barre_width / nbcol);
   var height = Math.floor(hauteur / nblin);
   if (width > height) {
