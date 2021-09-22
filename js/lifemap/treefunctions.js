@@ -1,15 +1,15 @@
 //HERE We create two variables that will be responsible for storing taxids of species from and two which roads may be computed
 var taxidFrom;
-var taxidTo;	
+var taxidTo;
 function getMrca(a1, a2) {
   	//we explore a1 and check if the value is present in a2.
   	//if it is, we store both the corresponding indexes in a1 and a2 (and cut after?...)
   		for (var i = 0; i < a1.length; i++) {
    		if (a2.indexOf(a1[i]) != -1) {
     		mrca = a1[i];
-			break; 
+			break;
 	    }
-    }	
+    }
     if (mrca===0) {mrca = 1;}
 	return mrca;
 }
@@ -22,14 +22,14 @@ function getRoute(a1, a2) {
    		res1.push(a1[i]);
    		if (a2.indexOf(a1[i]) != -1) {
     		var i2=a2.indexOf(a1[i]);
-			break; 
+			break;
 		}
   		}
     for (var i = 0; i < i2; i++) {
 	    res2.push(a2[i]);
     }
 	return res1.concat(res2.reverse());
-   }  
+   }
 
    var zoomTo = function(taxid) {
 	$("#route-details").hide();
@@ -37,9 +37,9 @@ function getRoute(a1, a2) {
  		var url = 'http://'+ServerAddress+'/solr/taxo/select?q=taxid:"'+taxid+'"&wt=json';
 	if (taxid === 1) {
 		if ($('#ChoiceExplo').find('i').attr('class').match("fa-check-square-o")===null) {
-			map.setView(L.latLng([-4.226497,0]),7);
+			map.setView(L.latLng([-5,0]),4);
 		}
-		else {map.flyTo( L.latLng([-4.226497,0]),7);}
+		else {map.flyTo( L.latLng([-5,0]),4);}
 	}
 	else if (typeof taxid != 'undefined') {
   		$.ajax({
@@ -50,13 +50,13 @@ function getRoute(a1, a2) {
 			if ($('#ChoiceExplo').find('i').attr('class').match("fa-check-square-o")===null) {
 				map.setView(jsonData[0].coordinates, jsonData[0].zoom);
 			}
-			else {	
-				map.flyTo(jsonData[0].coordinates, jsonData[0].zoom);		    
+			else {
+				map.flyTo(jsonData[0].coordinates, jsonData[0].zoom);
 			}
 		},
 		dataType : 'jsonp',
 		jsonp : 'json.wrf'
-		});	    
+		});
 	}
 	else {
 		alert('We could not Zoom to this location. \nPlease send and email to damien.de-vienne@univ-lyon1.fr explaining this issue and the taxid that was problematic.');
@@ -84,7 +84,7 @@ function CreatePopUps() {
 				var marker = L.marker(latlong,{icon: mark});
 				var str = ok[index].all;
 				str=str.split("|");
-				var spname = str[0];					  
+				var spname = str[0];
 				var comname = str[1];
 				var rank = str[2];
 				var taxid = str[3];
@@ -104,7 +104,7 @@ function CreatePopUps() {
 	//bind marker to markers group
 	markers.addLayer(marker);
 	markers.addTo(map);
-}; 
+};
 
 	//MAIN SEARCH FUNCTIONS (SINGLE AND ITINERARY)
 	//This little code fixes the width of the suggestions
@@ -120,7 +120,7 @@ function loadSearchFunction() {
 		var URL_PREFIX_FINAL = "http://"+ServerAddress+"/solr/taxo/select?q=taxid:";
 		var URL_SUFFIX = "&wt=json";
 		$("#searchinput").autocomplete({
-			//ONLY FOR IOS: 
+			//ONLY FOR IOS:
 			open: function(event, ui) {
   				    $('.ui-autocomplete').off('menufocus hover mouseover mouseenter');
 		    },
@@ -160,7 +160,7 @@ function loadSearchFunction() {
 								var renderval = spname + commonname;
 								console.log(issp)
 								if ((issp==="species")||(issp==="subspecies")||(issp==="espèce")||(issp==="sousespèce")) {
-									labOK = "<div style='border-bottom:1px solid #989898; padding: 20px;'><span class=\"scinameItalic\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\" >" + str[2] + "</span></div>";			
+									labOK = "<div style='border-bottom:1px solid #989898; padding: 20px;'><span class=\"scinameItalic\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\" >" + str[2] + "</span></div>";
 								}
 								else {
 									labOK = "<div style='border-bottom:1px solid #989898; padding: 20px;'><span class=\"sciname\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\">" + str[2] + "</span></div>";
@@ -171,7 +171,7 @@ function loadSearchFunction() {
 									taxidfinal: taxid,
 									spname:spname,
 									commonname:commonname,
-									rank:issp											
+									rank:issp
 								}
 							}));
 					},
@@ -188,14 +188,14 @@ function loadSearchFunction() {
 			},
 			select: function(e, ui) {
 				var taxidok = ui.item.taxidfinal;
-				var spnameok = ui.item.spname;	
+				var spnameok = ui.item.spname;
 				var commonnameok = ui.item.commonname;
 				var rankok = ui.item.rank;
 				//We copy the search to the search box for the ways.
 				$("#searchinput2").val(ui.item.value);
 				//We store the taxid to variable taxidFrom.
 				taxidFrom = taxidok;
-				$("#searchinput").blur();						
+				$("#searchinput").blur();
 				var URL = URL_PREFIX_FINAL + taxidok + URL_SUFFIX;
 				$.ajax({
 					url : URL,
@@ -210,7 +210,7 @@ function loadSearchFunction() {
 						else {
 							map.flyTo(jsonData[0].coordinates, jsonData[0].zoom-1);
 						}
-						SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1})								
+						SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1})
 						SPfocus.on("click", function() {
 							markofun(taxidok, spnameok,commonnameok,rankok);
 						})
@@ -218,7 +218,7 @@ function loadSearchFunction() {
 					},
 					dataType : 'jsonp',
 					jsonp : 'json.wrf'
-				});	    
+				});
 			}
 		})
 	});
@@ -263,7 +263,7 @@ function loadSearchFunction() {
 							commonname=commonname.replace(/<\/b>/g,"");
 							var renderval = spname + commonname;
 							if ((issp==="species")||(issp==="subspecies")||(issp==="espèce")||(issp==="sousespèce")) {
-								labOK = "<div style='border-bottom:1px solid #989898; padding: 20px;'><span class=\"scinameItalic\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\" >" + str[2] + "</span></div>";			
+								labOK = "<div style='border-bottom:1px solid #989898; padding: 20px;'><span class=\"scinameItalic\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\" >" + str[2] + "</span></div>";
 							}
 							else {
 								labOK = "<div style='border-bottom:1px solid #989898; padding: 20px;'><span class=\"sciname\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\">" + str[2] + "</span></div>";
@@ -287,12 +287,12 @@ function loadSearchFunction() {
 		    		return false;
 			},
 			select: function(e, ui) {
-				var taxidok = ui.item.taxidfinal;			    
+				var taxidok = ui.item.taxidfinal;
 				//We store the taxid to variable taxidFrom
 				taxidFrom = taxidok;
 				$("#searchinput2").blur();
 				focusorgo();
-			}, 
+			},
 		})
 	});
 	$(function() {
@@ -336,7 +336,7 @@ function loadSearchFunction() {
 							commonname=commonname.replace(/<\/b>/g,"");
 							var renderval = spname + commonname;
 							if ((issp==="species")||(issp==="subspecies")||(issp==="espèce")||(issp==="sousespèce")) {
-								labOK = "<div style='border-bottom:1px solid #989898; padding: 20px;'><span class=\"scinameItalic\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\" >" + str[2] + "</span></div>";			
+								labOK = "<div style='border-bottom:1px solid #989898; padding: 20px;'><span class=\"scinameItalic\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\" >" + str[2] + "</span></div>";
 							}
 							else {
 								labOK = "<div style='border-bottom:1px solid #989898; padding: 20px;'><span class=\"sciname\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\">" + str[2] + "</span></div>";
@@ -360,7 +360,7 @@ function loadSearchFunction() {
 		    		return false;
 			},
 			select: function(e, ui) {
-				var taxidok = ui.item.taxidfinal;			    
+				var taxidok = ui.item.taxidfinal;
 				taxidTo = taxidok;
 				$("#searchinput3").blur();
 				focusorgo();
@@ -368,8 +368,8 @@ function loadSearchFunction() {
 		})
 	});
 }
-//Now we create a function that will handle the fact 
-//that the focus is always on the search box that is empty, and that when both are full, 
+//Now we create a function that will handle the fact
+//that the focus is always on the search box that is empty, and that when both are full,
 //we start computing the route, etc...
 function focusorgo() {
 	if ((taxidTo===undefined)&&(taxidFrom!=undefined)) {
@@ -401,7 +401,7 @@ function mrcaroute() {
 				var route = asc1;
 				var asc2 = [0];
 			}
-			else { 
+			else {
 				var asc2 = res[1].ascend;
 				asc2 = [parseInt(res[1].taxid)].concat(asc2);
 			    var route = getRoute(asc1,asc2);
@@ -426,7 +426,7 @@ function mrcaroute() {
 				for (var j=0;j < dataok.length; j++) {
 				    neworder[j] = dataok[j].taxid[0];
 				}
-				//we will store lat and longs here 
+				//we will store lat and longs here
 				latlngs = [];
 				names = [];
 				taxids = [];
@@ -457,26 +457,26 @@ function mrcaroute() {
 				var sp1 = L.marker(latlngs[0], {icon: pin1});
 				sp1.on("click", function() {
 					markofun(taxids[0], names[0],commons[0], ranks[0]);
-				})	
+				})
 				markersRoute.addLayer(sp1);
 				var sp2 = L.marker(latlngs[latlngs.length-1], {icon: pin3});
 				sp2.on("click", function() {
 					markofun(taxids[latlngs.length-1], names[latlngs.length-1],commons[latlngs.length-1], ranks[latlngs.length-1]);
-				})	
+				})
 				markersRoute.addLayer(sp2);
 				if ((mrcaindex!=0)&&(mrcaindex!=(names.length-1))) { //case where there is no mrca (one of the clade is the mrca)
 				    var spmrca = L.marker(latlngs[mrcaindex], {icon: pin2});
 				    spmrca.on("click", function() {
 						markofun(taxids[mrcaindex], names[mrcaindex],commons[mrcaindex], ranks[mrcaindex]);
 					})
-				    markersRoute.addLayer(spmrca);							    
+				    markersRoute.addLayer(spmrca);
 							    $("#routemrca").empty();
 				    $("#routemrca").append(names[mrcaindex]);
-							    $("#mrcablock").show();	
+							    $("#mrcablock").show();
 					for (i=0;i<names.length;i++) {
 						ht = "<div class='col-xs-12 vcenter' onclick='javascript:zoomTo("+taxids[i]+");'>";
 						if (i!=0) {ht+= "<div class='row'><i class='fa fa-ellipsis-v fa-fw fa-lg' style='color:grey;'></i></div>";}
-						if (i===0) { //from 
+						if (i===0) { //from
 							ht+="<div class='row routestick'><i class='fa fa-map-marker fa-fw fa-lg' style='color:#ffcc00; text-shadow: 1px 1px 1px #ccc;'></i><span class='sciname'>"+names[i]+"</span>&nbsp<span class='rank'>"+ranks[i]+"</span></div>";
 							ht+="</div>" //close xs-10 column
 						}
@@ -487,17 +487,17 @@ function mrcaroute() {
 							ht+="<div class='row routestick'><i class='fa fa-map-marker fa-fw fa-lg' style='color:blue; text-shadow: 1px 1px 1px #ccc;'></i><span class='sciname'>"+names[i]+"</span>&nbsp<span class='rank'>"+ranks[i]+"</span></div>";
 						}
 						else { //intermediate nodes
-							ht+="<div class='row routestick'><i class='fa fa-caret-right fa-fw fa-lg' style='color:grey;'></i><span class='sciname'>"+names[i]+"</span>&nbsp<span class='rank'>"+ranks[i]+"</span></div>";	
+							ht+="<div class='row routestick'><i class='fa fa-caret-right fa-fw fa-lg' style='color:grey;'></i><span class='sciname'>"+names[i]+"</span>&nbsp<span class='rank'>"+ranks[i]+"</span></div>";
 						}
 						$("#details-content").append(ht);
 					}
 				}
 				else {
-					$("#mrcablock").hide();	
+					$("#mrcablock").hide();
 					for (i=0;i<names.length;i++) {
 						ht = "<div class='col-xs-12 vcenter' onclick='javascript:zoomTo("+taxids[i]+");'>";
 						if (i!=0) {ht+= "<div class='row'><i class='fa fa-ellipsis-v fa-fw' style='color:grey;'></i></div>";}
-						if (i===0) { //from 
+						if (i===0) { //from
 							ht+="<div class='row routestick'><i class='fa fa-map-marker fa-fw fa-lg' style='color:#ffcc00; text-shadow: 1px 1px 1px #ccc;'></i><span class='sciname'>"+names[i]+"</span>&nbsp<span class='rank'>"+ranks[i]+"</span></div>";
 							ht+="</div>" //close xs-10 column
 						}
@@ -505,7 +505,7 @@ function mrcaroute() {
 							ht+="<div class='row routestick'><i class='fa fa-map-marker fa-fw fa-lg' style='color:blue; text-shadow: 1px 1px 1px #ccc;'></i><span class='sciname'>"+names[i]+"</span>&nbsp<span class='rank'>"+ranks[i]+"</span></div>";
 						}
 						else { //intermediate nodes
-							ht+="<div class='row routestick'><i class='fa fa-caret-right fa-fw fa-lg' style='color:grey;'></i><span class='sciname'>"+names[i]+"</span>&nbsp<span class='rank'>"+ranks[i]+"</span></div>";	
+							ht+="<div class='row routestick'><i class='fa fa-caret-right fa-fw fa-lg' style='color:grey;'></i><span class='sciname'>"+names[i]+"</span>&nbsp<span class='rank'>"+ranks[i]+"</span></div>";
 						}
 						$("#details-content").append(ht);
 					}
@@ -528,4 +528,3 @@ function mrcaroute() {
    		jsonp : 'json.wrf'
    	})
 };
-			
