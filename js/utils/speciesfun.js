@@ -134,9 +134,13 @@ function selectThis() {
         map.removeLayer(SPfocus);
         var docs = JSON.stringify(data.response.docs);
         var jsonData = JSON.parse(docs);
-        string_explo = $("#ChoiceExplo").find('i').attr('class');
-        if (string_explo.match("fa-check-square-o")) map.flyTo(jsonData[0].coordinates, jsonData[0].zoom-1);
-        else map.setView(jsonData[0].coordinates, jsonData[0].zoom-1);
+        if ($('#ChoiceExplo').find('i').attr('class').match("fa-check-square-o")===null) {
+          map.setView(jsonData[0].coordinates, jsonData[0].zoom-1);
+        }
+        else {
+          map.flyTo(jsonData[0].coordinates, jsonData[0].zoom-1)
+        }
+
         SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1})
         SPfocus.on("click", function() {
           markofun(taxidok, spnameok,commonnameok,rankok);
