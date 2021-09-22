@@ -32,7 +32,7 @@ function getRoute(a1, a2) {
    }
 
    var zoomTo = function(taxid) {
-	$("#route-details").hide();
+//	$("#route-details").hide();
 	$("#theMenu").modal("hide");
  		var url = 'http://'+ServerAddress+'/solr/taxo/select?q=taxid:"'+taxid+'"&wt=json';
 	if (taxid === 1) {
