@@ -1,483 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
- 		<meta http-equiv="X-UA-Compatible" content="IE=edge">	
- 		<!-- <meta http-equiv="Content-Security-Policy"> -->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>Lifemap</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta http-equiv="Content-Security-Policy"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Lifemap</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="js/font-awesome-4.6.1/css/font-awesome.min.css">
+    <!-- leaflet -->
+    <link rel="stylesheet" href="js/leaflet/leaflet.css" />
+    <!-- jqueryui -->
+    <link href="js/searchbar/jquery-ui.css" rel="stylesheet" />
+    <!-- SWIPeR -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <!--Simon-->
+    <script type="text/javascript" src="js/utils/speciesfun.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script type="text/javascript" src="js/lifemap/switch-lang.js"></script>
+    <script type="text/javascript" src="js/lifemap/action.js"></script>
+    <link rel="stylesheet" href="css/lifemap.css">
+    <!-- Librairie micron.js -->
+    <link href="css/micron.min.css" type="text/css" rel="stylesheet">
+    <script src="js/utils/micron.min.js" type="text/javascript"></script>
 
-		<!-- Bootstrap -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<!-- font awesome -->
-		<link rel="stylesheet" href="js/font-awesome-4.6.1/css/font-awesome.min.css">
-		<!-- leaflet -->
-		<link rel="stylesheet" href="js/leaflet/leaflet.css" />
-		<!-- jqueryui -->
-		<link href="js/searchbar/jquery-ui.css" rel="stylesheet" />
-
-		<!-- SWIPeR --> 
-		<link rel="stylesheet" href="css/swiper.min.css">
- 		<script src="js/swiper.min.js"></script>
-<!--   		<script type="text/javascript" src="cordova.js"></script> 		 -->
- <script type="text/javascript" src="js/lifemap/switch-lang.js"></script>
- 		<script type="text/javascript" src="js/lifemap/action.js"></script>
- 		<link rel="stylesheet" href="css/lifemap.css">
-		<style>
-		</style>
-		<!--PHONE SPECIFIC FUNCTIONS-->
-	</head>
-	<body onload="onLoad()" style="background:black;">
-
-		<!-- SMALL DIV POPUP TO SAY ADDED TO FAVORITES DONE-->
-<!-- 		<div id="InfoFavo" style="display:none;"><span id="nameofaddedspecies"></span>&nbsp;<span id="removeoradded"></span></div>
- --><!--SWIPER TUTORIAL-->
-<!-- 	<div id = "tuto" class="swiper-container" hidden>
-        <div onclick="closetheswiper(this)" style="position:absolute; top: 10px; right:10px; z-index:10; color:white;"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-                    <img src="img/p1.png" opacity=1;>
-                </div>
+    <style>
+    .thumbnail { box-shadow: 4px 0px 4px 4px rgba(0.2, 0, 0.4, 0.8);
+      background:black;
+      border-color: black;
+      text-align: center; vertical-align: bottom
+    } /* Boxes containing the organism pciture */
+    .description { font-family: "URW Chancery L", cursive; color: yellow;
+      text-align: center; vertical-align: bottom;
+    } /* Captions of organism*/
+    </style>
+  </head>
+  <body onload="onLoad()" onresize="cleanBarre()"style="background:black;">
+  <!--SWIPER TUTORIAL-->
+    <div id = "tuto" class="swiper-container" hidden>
+      <div onclick="closetheswiper(this)" style="position:absolute; top: 30px; right:20px; z-index:10; color:white;"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="swiper-zoom-container">
+            <div class="papernote">
+              <i class='fa fa-question-circle fa-fw fa-lg'></i><br><br>
+              <span id="tuto-page1"></span>
             </div>
-            <div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-                    <img src="img/p2.png" opacity=1;>
-                </div>
-            </div>
-			<div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-                    <img src="img/p3.png" opacity=1;>
-                </div>
-            </div>
-            <div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-                    <img src="img/p4.png" opacity=1;>
-                </div>
-            </div>
-            <div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-                    <img src="img/p5.png" opacity=1;>
-                </div>
-            </div>
-            <div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-                    <img src="img/p6.png" opacity=1;>
-                </div>
-            </div>
-            <div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-                    <img src="img/p7.png" opacity=1;>
-                </div>
-            </div>
-            <div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-                    <img src="img/p8.png" opacity=1;>
-                </div>
-            </div>            
-            <div class="swiper-slide"></div>
-
+          </div>
         </div>
- -->        <!-- Add Pagination -->
-<!--         <div class="swiper-pagination"></div>
-    </div>
- -->
-<!--SWIPER TUTORIAL-->
-	<div id = "tuto" class="swiper-container" hidden>
-        <div onclick="closetheswiper(this)" style="position:absolute; top: 30px; right:20px; z-index:10; color:white;"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-					<div class="papernote">
-						<i class='fa fa-question-circle fa-fw fa-lg'></i><br><br>
-							<span id="tuto-page1"></span>
-					</div>
-                </div>
+        <div class="swiper-slide">
+          <div class="swiper-zoom-container">
+            <div class="papernote">
+              <i class='fa fa-info fa-fw  fa-lg'></i>
+              <span id="tuto-page2"></span>
             </div>
-            <div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-					<div class="papernote">
-						<i class='fa fa-info fa-fw  fa-lg'></i>
-							<span id="tuto-page2"></span>
-					</div>
-                </div>
-            </div>
-			<div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-					<div class="papernote">
-						<i class='fa fa-hand-pointer-o fa-fw fa-lg'></i><br><br>
-							<span id="tuto-page3"></span>
-					</div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-					<div class="papernote">
-						<i class='fa fa-user fa-fw  fa-lg'></i><br><br>
-							<span id="tuto-page4"></span>
-							<p>License : <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a> © Damien de Vienne 2016-2022</p>
-					</div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-            		<div class="papernote">
-						
-							<span id="tuto-page5"></span>
-					<div style="text-align:center; padding-top:20px;">
-					    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2c/CNRS.svg/200px-CNRS.svg.png" height="35px"style="padding-right: 7px;">
-					    <img src="img/lbbe-logo-2020.png" height="35px" style="padding-left: 7px;">
-					  </div>				
-
-					</div>
-                </div>
-            </div>
-            <div class="swiper-slide"></div>
-
+          </div>
         </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
+        <div class="swiper-slide">
+          <div class="swiper-zoom-container">
+            <div class="papernote">
+              <i class='fa fa-hand-pointer-o fa-fw fa-lg'></i><br><br>
+              <span id="tuto-page3"></span>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="swiper-zoom-container">
+            <div class="papernote">
+              <i class='fa fa-user fa-fw  fa-lg'></i><br><br>
+              <span id="tuto-page4"></span>
+              <p>License : <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a> © Damien de Vienne 2016-2022</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="swiper-zoom-container">
+            <div class="papernote">
+              <span id="tuto-page5"></span>
+              <div style="text-align:center; padding-top:20px;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2c/CNRS.svg/200px-CNRS.svg.png" height="35px"style="padding-right: 7px;">
+                <img src="img/lbbe-logo-2020.png" height="35px" style="padding-left: 7px;">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide"></div>
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
     </div>
-
-<!--SWIPER ABOUT-->
-<!-- 	<div id = "aboutswiper" class="swiper-container" hidden>
-        <div onclick="closetheswiper(this)" style="position:absolute; top: 10px; right:10px; z-index:10; color:white;"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>
-        <div class="swiper-wrapper">
-         <div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-                    <img src="img/about.png" opacity=1;>
+    <!--MAP-->
+    <div id="map" style="height:100%; z-index:0;">
+    </div>
+    <!--SIMPLE SEARCH DIV-->
+    <div id="mainsearch" class="container-fluid" style="position: absolute; right:80%; left:0px; top:20px; background:transparent; margin: 10px 10px 0px 10px; padding:0px; z-index:10;">
+      <div class="btn-group" style="width:100%;">
+        <span id="sandwich" class="glyphicon glyphicon-menu-hamburger"></span>
+        <input id="searchinput" type="search" class="form-control" style=" height:50px;" placeholder="Search species, clades, ...">
+        <span id="searchclear" class="glyphicon glyphicon-remove"></span>
+      </div>
+      <div class="divconnectionerror" hidden><i class="fa fa-wifi" style="font-size:inherit;">&nbsp;</i>
+        <span id="connectionerror"></span>
+      </div>
+    </div>
+    <!--ITINERARY SEARCH BUTTON-->
+    <a id="route" class="btn btn-default btn-circle">
+      <i class="fa fa-level-up"></i>
+    </a>
+    <!--Home button-->
+    <a id="logohome" class="btn btn-default btn-circle3" onclick="zoomTo(1);">
+      <i class="fa fa-home"></i>
+    </a>
+    <!-- ITINERARIES SEARCH DIV (TOP) -->
+    <div id="route-top" class="container-fluid" style=" padding-left:15px; padding-right:35px; background:#b4c3e0; box-shadow: 0 0 10px black; position: absolute; right:75%; left:0px; top:0; z-index: 100;" hidden>
+      <div class="row" style="height: 30px;">&nbsp;</div>
+      <div class="row">
+        <div class="col-xs-2" style=" padding-left:0px; padding-right:0px;"><a id="back-to-map" class="btn" style="color:white;"><i class="fa fa-arrow-left"></i></a></div>
+        <div class="col-xs-10" style="padding-left:0px;">
+          <input id="searchinput2" type="search" class="form-control" placeholder="From species, clade...">
+        </div>
+      </div>
+      <div class="row">&nbsp;</div>
+      <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-10" style="padding-left:0px;">
+          <input id="searchinput3" type="search" class="form-control" placeholder="To species, clade...">
+        </div>
+      </div>
+    <div class="row">&nbsp;</div>
+    </div>
+    <!--ITINERARY RESULTS DIV (BOTTOM)-->
+    <div id="route-bottom" class="container-fluid" style="position: absolute; right:75%; left:0px; bottom:0; z-index:1000; background:white; box-shadow: 0 0 10px black;" hidden>
+      <div class="row" style="padding:10px;">
+        <div class="col-xs-8 vcenter">
+          <div class="row"><i class="fa fa-map-marker fa-fw" style="color:#ffcc00; text-shadow: 1px 1px 1px #ccc;"></i><span id="routefrom"></span></div>
+          <div class="row"><i class="fa fa-ellipsis-v fa-fw" style="color:grey;"></i></div>
+          <div id="mrcablock" hidden>
+            <div class="row"><i class="fa fa-map-marker fa-fw" style="color:red; text-shadow: 1px 1px 1px #ccc;"></i>
+              <span style="font-size: xx-small; font-weight: bold; color:red;">MRCA </span>
+              <span id="routemrca" style="font-weight: bold; color:red;"></span>
+            </div>
+            <div class="row"><i class="fa fa-ellipsis-v fa-fw" style="color:grey;"></i></div>
+          </div>
+          <div class="row"><i class="fa fa-map-marker fa-fw" style="color:blue; text-shadow: 1px 1px 1px #ccc;"></i>
+            <span id="routeto"></span>
+          </div>
+        </div>
+        <div class="col-xs-2 vcenter">
+          <a href="#" id="recenter" class="btn btn-lg" style="color:#b4c3e0;"><i class="fa fa-dot-circle-o"></i></a>
+        </div>
+        <div class="col-xs-2 vcenter">
+          <a href="#" id="getroutedetails" class="btn btn-lg" style="color:#b4c3e0;"><i class="fa fa-list"></i></a>
+        </div>
+      </div>
+    </div>
+    <!--ITINERARY DETAILS DIV ///// TODO-->
+    <div id="route-details" class="container-fluid" style="position: absolute; right:75%; left:0px; top:0px; min-height: 100%; z-index:2000; background:#fafafa; box-shadow: 0 0 10px black;" hidden>
+      <div class="row" style="padding-top:10px; padding-right: 10px; text-align:right;">
+        <i id="closedetails" class="fa fa-times" style="color:grey; font-size:30px;"></i>
+      </div>
+      <div id="details-content" class="row" style="padding:10px;">
+      </div>
+      <hr>
+      <div class="row" style="padding-bottom: 20px; text-align: center;">
+        <button type="button" class="btn btn-default" id="closedetails2">Close</button>
+      </div>
+    </div>
+    <!--MODAL DIV THAT WILL CONTAIN THE DESCRIPTION OF THE SPECIES + PICTURES-->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="modal-title">
+              <span id="modaltitle"></span>
+              <!--<span id="clickonfavostar2" class="favo"><i class="fa fa-star-o unsavedfavo" aria-hidden="true"></i></span> -->
+              <div>
+                <span id="clickonfavostar" class="label label-default" style="font-size: 8px;"><i class="fa fa-star unsavedfavo" aria-hidden="true" style="font-size: inherit;"></i>&nbsp;<span></span></span>
+              </div>
+            </div>
+          <div id="invisibledata" hidden></div> <!-- Used for favorites...-->
+          </div>
+          <div class="modal-body">
+            <div id="modalbody-text" style="font-size: x-small; padding: 5px"></div>
+            <div id="modalbody-pict" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"></div>
+            <div id="modalbody-links" class="modal-body"></div>
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-xs-6 text-center">
+                <button type="button" id="viewfullancestry" class="btn btn-primary">View full ancestry</button>
+              </div>
+              <div class="col-xs-6 text-center">
+                <button id="closemodalwikidescription" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--MODAL WITH THE MENU -->
+    <div class="modal fade left" id="theMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header" style="padding-top: 30px;">
+ 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" style="font-size:32px;">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel"><img src = "img/logo1.png" width="80%"></h4>
+          </div>
+          <div class="modal-body text-justify" style="padding-bottom:10px;">
+            <div class='row menuentry'>
+              <div class='col-xs-2'><i class='fa fa-question-circle-o fa-lg fa-fw'></i></div>
+              <div id="gototuto" class='col-xs-10 men'></div>
+            </div>
+            <div class='row menuentry'>
+              <div class='col-xs-2'><i class='fa fa-share-alt fa-lg fa-fw'></i></div>
+              <div id="share" class='col-xs-10 men'></div>
+            </div>
+            <div class='row menuentry'>
+              <div class='col-xs-2'><i class='fa fa-language fa-lg fa-fw'></i></div>
+              <div id="langs" class='col-xs-10 men'></div>
+            </div>
+            <div class='row menuentry'>
+              <div class='col-xs-2'><i class='fa fa-star-o fa-lg fa-fw'></i></div>
+              <div id="favoritesclick" class='col-xs-10 men'><span id="favorites"></span><i id="caretdown1" class="fa fa-caret-down fa-sm fa-fw" style="font-size:15px;"></i></div>
+            </div>
+            <div id="favoritesdiv" style="display: none; text-align:left;">
+              <div id="messagenofavorite" style='color:grey; font-size: 10px; padding: 10px;'></div>
+              <!-- 							ICI VIENDRONT DES FAVORIS -->
+            </div>
+            <div class='row menuentry'>
+              <div class='col-xs-2'><i class='fa fa-cog fa-lg fa-fw'></i></div>
+              <div id="settingsclick" class='col-xs-10 men'><span id="settings"></span><i id="caretdown2" class="fa fa-caret-down fa-sm fa-fw" style="font-size:15px;"></i></div>
+            </div>
+            <div id="settingsdiv" style="display: none;">
+              <div class='row menuentry'>
+                <div class="col-xs-2"></div>
+                <div class="col-xs-10">
+                  <span id="ChoiceExplo"><i class='fa fa-square-o fa-fw' style="font-size:15px;"></i> <span id="flybutton"></span></span>
+                  <div id="flytext" style='color:grey; font-size: 10px; padding: 10px;'></div>
                 </div>
+              </div>
             </div>
-            <div class="swiper-slide"></div>
-    	</div>
+          </div>
+          <div class="modal-footer" style='text-align:center; border-top: 0px;'>
+            <button id="BigLeftMenu" type="button" class="btn btn-default" data-dismiss="modal" style='font-size:16px;'>Close</button>
+          </div>
+        </div>
+      </div>
     </div>
- -->
-<!--SWIPER TOL-->
-<!-- 	<div id = "tolswiper" class="swiper-container" hidden>
-        <div onclick="closetheswiper(this)" style="position:absolute; top: 10px; right:10px; z-index:10; color:white;"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>
-        <div class="swiper-wrapper">
-         <div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-                    <img src="img/tree.png">
+    <!--LANGUAGE CHOICE MODAL-->
+    <div id="langchoice" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <p style="color:grey;"><i class='fa fa-language fa-lg fa-fw'></i></p>
+          </div>
+          <div class="modal-body text-center">
+            <div class="row langchoicemodal">
+              <div class="col-xs-4">
+                <div id="interfacelang" class="row">
+                  <div class="titlerow">Interface</div>
+                  <div id="int-fr" onclick="chooselang(this)" class="row"></div>
+                  <div id="int-en" onclick="chooselang(this)" class="row"></div>
                 </div>
+              </div>
+              <div class="col-xs-4">
+                <div id="treelang" class="row">
+                  <div id="langfortree" class="titlerow"></div>
+                  <div id="tree-fr" onclick="chooselang(this)" class="row"></div>
+                  <div id="tree-en1" onclick="chooselang(this)" class="row"></div>
+                  <div id="tree-en2" onclick="chooselang(this)" class="row"></div>
+                </div>
+              </div>
+              <div class="col-xs-4">
+                <div id="wikilang" class="row">
+                  <div class="titlerow">Wikipedia</div>
+                  <div id="wiki-fr" onclick="chooselang(this)" class="row"></div>
+                  <div id="wiki-en" onclick="chooselang(this)" class="row"></div>
+                  <div id="wiki-ru" onclick="chooselang(this)" class="row"></div>
+                  <div id="wiki-it" onclick="chooselang(this)" class="row"></div>
+                  <div id="wiki-ca" onclick="chooselang(this)" class="row"></div>
+                  <div id="wiki-es" onclick="chooselang(this)" class="row"></div>
+                </div>
+              </div>
             </div>
-            <div class="swiper-slide"></div>
-    	</div>
-    </div> -->
-<!--SWIPER CONTACT-->
-<!-- 	<div id = "contactswiper" class="swiper-container" hidden>
-        <div onclick="closetheswiper(this)" style="position:absolute; top: 10px; right:10px; z-index:10; color:white;"><i class="fa fa-times fa-2x" aria-hidden="true"></i></div>
-        <div class="swiper-wrapper">
-         <div class="swiper-slide">
-            	<div class="swiper-zoom-container">
-                    
-                    <img src="img/back.png" opacity=1;>
-					<div style="position:absolute; width:auto; height:auto; z-index:15000; color: white; font-size: 10pt;">
-						<img src="img/petitlogo.png" width=40px>
-						<br><br>
-						<p><i>Author</i>&nbsp;&nbsp;&nbsp;Damien de Vienne, CNRS</p>
-						<p><i>Contact</i> &nbsp;&nbsp;&nbsp;<a href="mailto:damien.de-vienne@univ-lyon1.fr">damien.de-vienne@univ-lyon1.fr</a></p>
-						<hr>
-						<p>Laboratoire de Biométrie et Biologie Évolutive (LBBE)<br>
-						UMR 5558 CNRS/Université Lyon 1 <br>
-						Villeurbanne, France</p>
-						<br><br>
-	                    <img src="img/logocnrsunivlyon.png">
-
-
-					</div>
-                </div>               
-            </div>
-            <div class="swiper-slide"></div>
-    	</div>
+          </div>
+          <div class="modal-footer">
+            <button id="closelangchoice" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
- -->
-
-		<!--MAP-->
-		<div id="map" style="height:100%; z-index:0;">
-<!-- 			<div id="loading" style="position:absolute; left:50%; top:50%;z-index:10000;"><img src="img/loading.gif" height="20px;" width="20px"></div> -->
-		</div>
-		<!--SIMPLE SEARCH DIV-->
-		<div id="mainsearch" class="container-fluid" style="position: absolute; right:80%; left:0px; top:20px; background:transparent; margin: 10px 10px 0px 10px; padding:0px; z-index:10;">
-			<div class="btn-group" style="width:100%;">
-				<span id="sandwich" class="glyphicon glyphicon-menu-hamburger"></span>
-				<input id="searchinput" type="search" class="form-control" style=" height:50px;" placeholder="Search species, clades, ...">
-				<span id="searchclear" class="glyphicon glyphicon-remove"></span>
-			</div>
-			<div class="divconnectionerror" hidden><i class="fa fa-wifi" style="font-size:inherit;">&nbsp;</i><span id="connectionerror"></span></div>
-		</div>
-		<!--ITINERARY SEARCH BUTTON-->
-		<a id="route" class="btn btn-default btn-circle">
-			<i class="fa fa-level-up"></i>
-		</a>
-		<!--Home button-->
-		<a id="logohome" class="btn btn-default btn-circle3" onclick="zoomTo(1);">
-			<i class="fa fa-home"></i>
-		</a>
-			
-<!-- 		<div class="bottomleft">
-			<img src="img/LMtext1.png" height="20px">
-		</div>
- -->			
-		<!-- ITINERARIES SEARCH DIV (TOP) -->
-		<div id="route-top" class="container-fluid" style=" padding-left:15px; padding-right:35px; background:#b4c3e0; box-shadow: 0 0 10px black; position: absolute; right:75%; left:0px; top:0; z-index: 100;" hidden>
-			<div class="row" style="height: 30px;">&nbsp;</div>
-			<div class="row">
-				<div class="col-xs-2" style=" padding-left:0px; padding-right:0px;"><a id="back-to-map" class="btn" style="color:white;"><i class="fa fa-arrow-left"></i></a></div>
-				<div class="col-xs-10" style="padding-left:0px;">
-					<input id="searchinput2" type="search" class="form-control" placeholder="From species, clade...">
-				</div>
-			</div>
-			<div class="row">&nbsp;</div>
-			<div class="row">
-				<div class="col-xs-2"></div>
-				<div class="col-xs-10" style="padding-left:0px;">
-					<input id="searchinput3" type="search" class="form-control" placeholder="To species, clade...">
-				</div>
-			</div>
-			<div class="row">&nbsp;</div>
-		</div>	
-
-
-<!-- 		<div id="imageexpo" style="color:white; position:absolute; top:0px; right:0px; height:40%;">
-			ESPECE DE CLIMAT
-			<img src="img/espece-climat.png" height="100%;">
-		</div>
- -->
-		<!--ITINERARY RESULTS DIV (BOTTOM)-->
-		<div id="route-bottom" class="container-fluid" style="position: absolute; right:75%; left:0px; bottom:0; z-index:1000; background:white; box-shadow: 0 0 10px black;" hidden>
-			<div class="row" style="padding:10px;">
-				<div class="col-xs-8 vcenter">
-					<div class="row"><i class="fa fa-map-marker fa-fw" style="color:#ffcc00; text-shadow: 1px 1px 1px #ccc;"></i><span id="routefrom"></span></div>	
-					<div class="row"><i class="fa fa-ellipsis-v fa-fw" style="color:grey;"></i></div>
-					<div id="mrcablock" hidden>
-						<div class="row"><i class="fa fa-map-marker fa-fw" style="color:red; text-shadow: 1px 1px 1px #ccc;"></i><span style="font-size: xx-small; font-weight: bold; color:red;">MRCA </span><span id="routemrca" style="font-weight: bold; color:red;"></span></div>
-						<div class="row"><i class="fa fa-ellipsis-v fa-fw" style="color:grey;"></i></div>
-					</div>
-					<div class="row"><i class="fa fa-map-marker fa-fw" style="color:blue; text-shadow: 1px 1px 1px #ccc;"></i><span id="routeto"></span></div>	
-				</div><!--
-				      --><div class="col-xs-2 vcenter"><a href="#" id="recenter" class="btn btn-lg" style="color:#b4c3e0;"><i class="fa fa-dot-circle-o"></i></a></div><!--
-				      --><div class="col-xs-2 vcenter"><a href="#" id="getroutedetails" class="btn btn-lg" style="color:#b4c3e0;"><i class="fa fa-list"></i></a></div>
-			</div>
-		</div>
-		<!--ITINERARY DETAILS DIV ///// TODO-->
-		<div id="route-details" class="container-fluid" style="position: absolute; right:75%; left:0px; top:0px; min-height: 100%; overflow: scroll; overflow-x:hidden; height: 100%; z-index:2000; background:#fafafa; box-shadow: 0 0 10px black;" hidden>
-			<div class="row" style="padding-top:10px; padding-right: 10px; text-align:right;">
-					<i id="closedetails" class="fa fa-times" style="color:grey; font-size:30px;"></i>
-			</div>
-			<div id="details-content" class="row" style="padding:10px;">
-			</div>
-			<hr>
-			<div class="row" style="padding-bottom: 20px; text-align: center;">
-					<button type="button" class="btn btn-default" id="closedetails2">Close</button>
-			</div>
-		</div>
-
-		<!--MODAL DIV THAT WILL CONTAIN THE DESCRIPTION OF THE SPECIES + PICTURES-->
-		<div id="myModal" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<div class="modal-title">
- 							<span id="modaltitle"></span>
-	<!--<span id="clickonfavostar2" class="favo"><i class="fa fa-star-o unsavedfavo" aria-hidden="true"></i></span> -->
-							<div>
-								<span id="clickonfavostar" class="label label-default" style="font-size: 8px;"><i class="fa fa-star unsavedfavo" aria-hidden="true" style="font-size: inherit;"></i>&nbsp;<span></span></span>
-							</div>
-						</div>
-						<div id="invisibledata" hidden></div> <!-- Used for favorites...--> 
-					</div>
-					<div class="modal-body">
-							<div id="modalbody-text" style="font-size: x-small; padding: 5px"></div>
-							<div id="modalbody-pict" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"></div>	
-							<div id="modalbody-links" class="modal-body"></div>	
-					</div>
-					<div class="modal-footer">
-						<div class="row"> 
-							<div class="col-xs-6 text-center">
-								<button type="button" id="viewfullancestry" class="btn btn-primary">View full ancestry</button>
-							</div>
-							<div class="col-xs-6 text-center">
-								<button id="closemodalwikidescription" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<!--LOST CONNECTION MODAL-->
-<!-- 		<div id="lostconnect" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header text-center">
-						<h4>CONNECTION PROBLEM</h4>
-						<p style="color:grey;"><i class="fa fa-wifi" aria-hidden="true"></i><i class="fa fa-signal" aria-hidden="true"></i></p>
-					</div>
-					<div class="modal-body text-center">
-						<p>There seems to be a problem with your internet connection. Please check that your device is connected to the internet.</p>
-						<p>If the problem persists after restarting the app and ensuring that the device is properly connected, please contact damien.de-vienne@univ-lyon1.fr.</p>
-
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
- -->
-		<!--MODAL WITH THE MENU -->	
-		<div class="modal fade left" id="theMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header" style="padding-top: 30px;">
- 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="font-size:32px;">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel"><img src = "img/logo1.png" width="80%"></h4>
-					</div>
-					<div class="modal-body text-justify" style="padding-bottom:10px;">
-						<div class='row menuentry'>
-							<div class='col-xs-2'><i class='fa fa-question-circle-o fa-lg fa-fw'></i></div>
-							<div id="gototuto" class='col-xs-10 men'></div>
-						</div> 
-						<div class='row menuentry'>
-							<div class='col-xs-2'><i class='fa fa-share-alt fa-lg fa-fw'></i></div>
-							<div id="share" class='col-xs-10 men'></div>
-						</div>
-						<div class='row menuentry'>
-							<div class='col-xs-2'><i class='fa fa-language fa-lg fa-fw'></i></div>
-							<div id="langs" class='col-xs-10 men'></div>
-						</div>
-						<div class='row menuentry'>
-							<div class='col-xs-2'><i class='fa fa-star-o fa-lg fa-fw'></i></div>
-							<div id="favoritesclick" class='col-xs-10 men'><span id="favorites"></span><i id="caretdown1" class="fa fa-caret-down fa-sm fa-fw" style="font-size:15px;"></i></div>
-						</div>
-						<div id="favoritesdiv" style="display: none; text-align:left;">
-						<div id="messagenofavorite" style='color:grey; font-size: 10px; padding: 10px;'></div>
-<!-- 							ICI VIENDRONT DES FAVORIS --> 
-						</div>						
-						<div class='row menuentry'>
-							<div class='col-xs-2'><i class='fa fa-cog fa-lg fa-fw'></i></div>
-							<div id="settingsclick" class='col-xs-10 men'><span id="settings"></span><i id="caretdown2" class="fa fa-caret-down fa-sm fa-fw" style="font-size:15px;"></i></div>
-						</div>
-						<div id="settingsdiv" style="display: none;">
-							<div class='row menuentry'>
-								<div class="col-xs-2"></div>
-								<div class="col-xs-10">
-									<span id="ChoiceExplo"><i class='fa fa-square-o fa-fw' style="font-size:15px;"></i> <span id="flybutton"></span></span>
-									<div id="flytext" style='color:grey; font-size: 10px; padding: 10px;'></div>
-								</div>
-							</div>
-						</div>						
-					</div>
-					<div class="modal-footer" style='text-align:center; border-top: 0px;'>
-				        <button id="BigLeftMenu" type="button" class="btn btn-default" data-dismiss="modal" style='font-size:16px;'>Close</button>
-				    </div>
-				</div>
-			</div>
-		</div>
-
-		<!--LANGUAGE CHOICE MODAL-->
-		<div id="langchoice" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header text-center">
-						<p style="color:grey;"><i class='fa fa-language fa-lg fa-fw'></i></p>
-					</div>
-					<div class="modal-body text-center">
-						<div class="row langchoicemodal">
-							<div class="col-xs-4">
-								<div id="interfacelang" class="row">
-									<div class="titlerow">Interface</div>
-									<div id="int-fr" onclick="chooselang(this)" class="row"></div>
-									<div id="int-en" onclick="chooselang(this)" class="row"></div>
-								</div>
-							</div>
-							<div class="col-xs-4">
-								<div id="treelang" class="row">
-									<div id="langfortree" class="titlerow"></div>
-									<div id="tree-fr" onclick="chooselang(this)" class="row"></div>
-									<div id="tree-en1" onclick="chooselang(this)" class="row"></div>
-									<div id="tree-en2" onclick="chooselang(this)" class="row"></div>
-								</div>
-							</div>
-							<div class="col-xs-4">
-								<div id="wikilang" class="row">
-									<div class="titlerow">Wikipedia</div>
-									<div id="wiki-fr" onclick="chooselang(this)" class="row"></div>
-									<div id="wiki-en" onclick="chooselang(this)" class="row"></div>
-									<div id="wiki-ru" onclick="chooselang(this)" class="row"></div>
-									<div id="wiki-it" onclick="chooselang(this)" class="row"></div>
-									<div id="wiki-ca" onclick="chooselang(this)" class="row"></div>
-									<div id="wiki-es" onclick="chooselang(this)" class="row"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button id="closelangchoice" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<div id="ShareModal" class="modal fade" role="dialog">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		      </div>
-		      <div class="modal-body">
-				<a href="https://twitter.com/share" class="twitter-share-button" data-text="This is Lifemap, the explorer of the entire Tree of Life! Check it out!" data-url="http://lifemap.univ-lyon1.fr" data-via="lifemap_tol" data-hashtags="ToL" data-show-count="true">Tweet</a>
-				</div>
-			</div>
-		  </div>
-		</div>
-
-
-		<!-- SCRIPTS -->
-		<!--SCRIPTS RELATED WITH THE PHONE CONNECTION TO INTERNET-->
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="js/jquery-1.12.3.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/bootstrap.min.js"></script>
-		<!-- Include leaflet -->
-		<script src="js/leaflet/leaflet.js"></script>
-		<!--JQUERY UI -->
-		<script src="js/searchbar/jquery-ui.js"></script>
-		<!--JQUERY UI HTML AUTOCOMPLETE EXTENSION-->
-		<script src="js/searchbar/jquery.ui.autocomplete.html.js"></script>
-		<!--HERE IS WHAT CONCERNS THE MAP AND MAP FUNCTION (focus, etc...)-->
-
-		<script>
-			$('#ChoiceExplo').click(function(){
-				$(this).find('i').toggleClass('fa-square-o fa-check-square-o')
-				str = $(this).find('i').attr('class');
-				if (str.match("fa-check-square-o")===null) {
-					window.localStorage.setItem("fly", "false")
-				}
-				else 
-				{
-					window.localStorage.setItem("fly", "true")
-				}
-		});
-		</script>
-		<!--MAP LAYER AND MARKERS APPEARANCE-->
-		<script type="text/javascript" src="js/lifemap/mapcontrol.js"></script>	
-		<!--INTERACTION FUNCTIONS(DIV SHOW/HIDE, FOCUS ON SE ETC.)-->
-		<script type="text/javascript" src="js/lifemap/interaction.js"></script>
-		<!-- TREE MAP SPECIFIC FUNCTIONS -->
-		<script type="text/javascript" src="js/lifemap/treefunctions.js"></script>
-		<!--wikipedia related functions-->
-		<script type="text/javascript" src="js/lifemap/wikipedia.js"></script>
-		<!--OPTIONS FOR FAVORITES-->
+    <div id="ShareModal" class="modal fade" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-text="This is Lifemap, the explorer of the entire Tree of Life! Check it out!" data-url="http://lifemap.univ-lyon1.fr" data-via="lifemap_tol" data-hashtags="ToL" data-show-count="true">Tweet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- BARRE -->
+    <div id=barre></div>
+    <!-- SCRIPTS -->
+    <!--SCRIPTS RELATED WITH THE PHONE CONNECTION TO INTERNET-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Include leaflet -->
+    <script src="js/leaflet/leaflet.js"></script>
+    <!--JQUERY UI -->
+    <script src="js/searchbar/jquery-ui.js"></script>
+    <!--JQUERY UI HTML AUTOCOMPLETE EXTENSION-->
+    <script src="js/searchbar/jquery.ui.autocomplete.html.js"></script>
+    <!--HERE IS WHAT CONCERNS THE MAP AND MAP FUNCTION (focus, etc...)-->
+    <script>
+      $('#ChoiceExplo').click(function(){
+        $(this).find('i').toggleClass('fa-square-o fa-check-square-o')
+        str = $(this).find('i').attr('class');
+        if (str.match("fa-check-square-o")===null) {
+          window.localStorage.setItem("fly", "false")
+        }
+        else
+        {
+          window.localStorage.setItem("fly", "true")
+        }
+      });
+    </script>
+    <!--MAP LAYER AND MARKERS APPEARANCE-->
+    <script type="text/javascript" src="js/lifemap/mapcontrol.js"></script>
+    <!--INTERACTION FUNCTIONS(DIV SHOW/HIDE, FOCUS ON SE ETC.)-->
+    <script type="text/javascript" src="js/lifemap/interaction.js"></script>
+    <!-- TREE MAP SPECIFIC FUNCTIONS -->
+    <script type="text/javascript" src="js/lifemap/treefunctions.js"></script>
+    <!--wikipedia related functions-->
+    <script type="text/javascript" src="js/lifemap/wikipedia.js"></script>
+    <!--OPTIONS FOR FAVORITES-->
  		<script type="text/javascript" src="js/lifemap/favorites.js"></script>
-		<!--Swiper behavior related functions-->
-		<script type="text/javascript" src="js/lifemap/swiper.js"></script>
+    <!--Swiper behavior related functions-->
+    <script type="text/javascript" src="js/lifemap/swiper.js"></script>
 
-	</body>
+  </body>
 </html>
