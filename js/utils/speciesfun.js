@@ -130,7 +130,14 @@ function selectThis() {
   var URL = URL_PREFIX_FINAL + taxidok + URL_SUFFIX;
   var largeur = window.innerWidth; // maj de la largeur en cas de modif
   // Action sur lifemap
-    taxidFrom = taxidok;
+    if (selected === this.id) {
+      degrise(selected);
+      if ($('#ChoiceExplo').find('i').attr('class').match("fa-check-square-o")===null) {
+        map.setView(L.latLng([-5,0]),4);
+      }
+      else {map.flyTo( L.latLng([-5,0]),4);}
+    }
+    else {
     $.ajax({
       url : URL,
       success : function(data) {
@@ -158,6 +165,7 @@ function selectThis() {
       }
     grise(this.id);  // On la grise
     selected = this.id;
+  }
 }
 
 // Grise une division
