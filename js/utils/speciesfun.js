@@ -98,8 +98,13 @@ console.log(imageName,left,top,width);
   // divImage.setAttribute("data-micron-bind",true);
   divImage.onclick = selectThis;
   console.log(dicoSpecies[imageName][indexLangue]);
-  var divLegend = document.createTextNode(dicoSpecies[imageName][indexLangue]);
+	// var italic = document.createElement("I"); //style Italic
+  // var divLegendLatin = document.createTextNode(dicoSpecies[imageName][0]);
+  var divLegend = document.createTextNode("("+dicoSpecies[imageName][indexLangue]+")");
+  // italic.appendChild(divLegendLatin);
+	// divDescription.appendChild(italic);
   divDescription.appendChild(divLegend);
+
   divSpecies.appendChild(divImage);
   // dragElement(divSpecies);
   element.appendChild(divSpecies);
@@ -132,6 +137,7 @@ function selectThis() {
   // Action sur lifemap
     if (selected === this.id) {
       degrise(selected);
+      selected = 0;
       if ($('#ChoiceExplo').find('i').attr('class').match("fa-check-square-o")===null) {
         map.setView(L.latLng([-5,0]),4);
       }
