@@ -4,8 +4,8 @@
 var widthMax = 500; // Largeur max d'une vignette
 var borderSpecies = 20;  // Epaisseur entre les images d'especes
 var pictureDir = "img/speciesImages"  ; // Repertoire des images
-var indexLangue = 0;
-var barre_width_percent = 20;
+var indexLangue = 1;
+var barre_width_percent = 25;
 var selected = "";
 var arraySpecies = [
 		 [9606,    ["Homo sapiens","Humain"]],
@@ -23,7 +23,9 @@ var arraySpecies = [
 		 [31869,    ["Daubentonia madagascariensis","Aye-Aye"]],
 		 [5699,    ["Trypanosoma vivax","Trypanosoma vivax"]],
 		 [9993,    ["Marmota marmota","Marmotte"]],
-		 [7227,    ["Drosophila melanogaster","Mouche du vinaigre"]]
+		 [7227,    ["Drosophila melanogaster","Mouche du vinaigre"]],
+		 [28584,   ["Drosophila suzukii","Moucheron asiatique"]],
+		 [63433,   ["Leptopilina boulardi","Guêpe parasitoïde"]]
 		];
 
 // Cree une map a partir du tableau
@@ -42,11 +44,12 @@ mapSpecies.forEach(function(valeur, clef) {
 function displaySpecies(largeur,hauteur){
   var nbspec = data.length;
   var topSpecies = 20;
-	var nbcol = Math.floor( nbspec / 7 ) + 1;
-  var nblin = Math.floor( nbspec / nbcol) + 1;
+	// var nbcol = Math.floor( nbspec / 7 ) + 1;
+  // var nblin = Math.floor( nbspec / nbcol) + 1;
 	var barre_width = barre_width_percent * largeur / 100 ;
+	var nblin = Math.floor(Math.sqrt(nbspec * hauteur / barre_width)) +1 ;
+	var nbcol = Math.floor( nbspec / nblin) + 1;
 	var leftSpecies = largeur - barre_width ;
-
   var width = Math.floor(barre_width / nbcol);
   var height = Math.floor(hauteur / nblin);
   if (width > height) {
