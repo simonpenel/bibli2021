@@ -23,7 +23,9 @@ var arraySpecies = [
 		 [31869,    ["Daubentonia madagascariensis","Aye-Aye"]],
 		 [5699,    ["Trypanosoma vivax","Trypanosoma vivax"]],
 		 [9993,    ["Marmota marmota","Marmotte"]],
-		 [7227,    ["Drosophila melanogaster","Mouche du vinaigre"]]
+		 [7227,    ["Drosophila melanogaster","Mouche du vinaigre"]],
+		 [28584,   ["Drosophila suzukii","Moucheron asiatique"]],
+		 [63433,   ["Leptopilina boulardi","Guêpe parasitoïde"]]
 		];
 
 // Cree une map a partir du tableau
