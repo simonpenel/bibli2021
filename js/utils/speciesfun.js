@@ -7,6 +7,7 @@ var pictureDir = "img/speciesImages"  ; // Repertoire des images
 var indexLangue = 1;
 var barre_width_percent = 25;
 var selected = "";
+var police_size = 10;
 var arraySpecies = [
 		 [9606,    ["Homo sapiens","Humain"]],
 		 [10090,   ["Mus musculus","Souris grise"]],
@@ -42,6 +43,16 @@ mapSpecies.forEach(function(valeur, clef) {
 // Affiche la barre qui contient les especes
 // -----------------------------------------
 function displaySpecies(largeur,hauteur){
+
+	var lang = document.getElementById('interfacelang');
+	var lang2 = lang.getElementsByClassName('row selectedlang');
+	console.log("LANGAGE IS "+lang2[0].id);
+	if (lang2[0].id === "int-fr") {
+    indexLangue = 1;
+  }
+  else {
+    indexLangue = 0;
+  }
   var nbspec = data.length;
   var topSpecies = 20;
 	// var nbcol = Math.floor( nbspec / 7 ) + 1;
@@ -86,9 +97,13 @@ console.log(imageName,left,top,width);
   divSpecies.setAttribute("style", "position:absolute; left:" + left + "px; top:" + top + "px; width: "+width+"px; height:"+(width*1)+"px")
   divSpecies.setAttribute("class","thumbnail");
   var divDescription = document.createElement("div");
-  divDescription.setAttribute("style", "position:absolute; left:" + left + "px; top:" +(width+top) + "px; width: "+width+"px;")
+  divDescription.setAttribute("style", "position:absolute; left:" + left + "px; top:" +(police_size + 1.0*width+top) + "px; width: "+width+"px;")
   divDescription.setAttribute("class","description");
   divDescription.setAttribute("id", "legend_"+imageName);
+	var divDescriptionLatin = document.createElement("div");
+  divDescriptionLatin.setAttribute("style", "position:absolute; left:" + left + "px; top:" +(1.0*width+top) + "px; width: "+width+"px;")
+  divDescriptionLatin.setAttribute("class","description");
+  divDescriptionLatin.setAttribute("id", "legendLatin_"+imageName);
   var divImage = document.createElement("img");
   divImage.setAttribute("src", pictureDir+"/"+imageName+".jpg");
   divImage.setAttribute("style", "width: "+width+"px; border-radius: 20%");
@@ -98,16 +113,14 @@ console.log(imageName,left,top,width);
   // divImage.setAttribute("data-micron-bind",true);
   divImage.onclick = selectThis;
   console.log(dicoSpecies[imageName][indexLangue]);
-	// var italic = document.createElement("I"); //style Italic
-  // var divLegendLatin = document.createTextNode(dicoSpecies[imageName][0]);
-  var divLegend = document.createTextNode("("+dicoSpecies[imageName][indexLangue]+")");
-  // italic.appendChild(divLegendLatin);
-	// divDescription.appendChild(italic);
+  var divLegendLatin = document.createTextNode(dicoSpecies[imageName][0]);
+  var divLegend = document.createTextNode(dicoSpecies[imageName][indexLangue]);
+	divDescriptionLatin.appendChild(divLegendLatin);
   divDescription.appendChild(divLegend);
-
   divSpecies.appendChild(divImage);
   // dragElement(divSpecies);
   element.appendChild(divSpecies);
+  // element.appendChild(divDescriptionLatin);
   element.appendChild(divDescription);
 }
 

@@ -49,7 +49,7 @@ function SwitchInterfaceToFR() {
 	$("#wiki-it").html('italien')
 	$("#wiki-es").html('espagnol')
 	$("#wiki-ca").html('catalan')
-	//wiki modal 
+	//wiki modal
 	wikimoreon = "lire la suite sur "
 	wikinoarticle = "Pas d'article concernant ce groupe dans <i class='fa fa-wikipedia-w'></i>ikipedia."
 	wikinopicture = "Pas de photo associée dans <i class='fa fa-wikipedia-w'></i>ikipedia."
@@ -103,7 +103,7 @@ function SwitchInterfaceToEN() {
 	$("#wiki-it").html('italian')
 	$("#wiki-es").html('spanish')
 	$("#wiki-ca").html('catalan')
-	//wiki modal 
+	//wiki modal
 	wikimoreon = "more on "
 	wikinoarticle = "No article concerning this group in <i class='fa fa-wikipedia-w'></i>ikipedia."
 	wikinopicture = "No associated picture on <i class='fa fa-wikipedia-w'></i>ikipedia."
@@ -129,10 +129,10 @@ function SwitchInterfaceToEN() {
 function SwitchTreeVersion(treeversion) {
 	console.log(treeversion)
 	if (treeversion==="tree-fr") ServerAddress = "lifemap-fr.univ-lyon1.fr";
-	if (treeversion==="tree-en1") ServerAddress = "lifemap.univ-lyon1.fr";		
+	if (treeversion==="tree-en1") ServerAddress = "lifemap.univ-lyon1.fr";
 	if (treeversion==="tree-en2") ServerAddress = "lifemap-ncbi.univ-lyon1.fr";
 	setmaplayer('http://'+ServerAddress+'/retina_tiles/{z}/{x}/{y}.png');
-	loadSearchFunction() //reload search functions with correct server address based on tree language. 
+	loadSearchFunction() //reload search functions with correct server address based on tree language.
 }
 function SwitchWikiVersion(wikiversion) {
 	wikilang = wikiversion.split("-")[1];
@@ -155,14 +155,17 @@ function chooselang(x) {
 		if (x.id==="int-en") SwitchInterfaceToEN()
 		if (x.parentNode.id==="treelang") SwitchTreeVersion(x.id)
 		if (x.parentNode.id==="wikilang") SwitchWikiVersion(x.id)
-		//AND EVERYTIME THEIR IS A SWITCH OF THE LANGUAGE, 
+		//AND EVERYTIME THEIR IS A SWITCH OF THE LANGUAGE,
 		//WE STORE THE NEW COMBINATION OF CHOICES FOR LATER START.
 		savelang = $("#interfacelang > .selectedlang").attr('id')+"+"+$("#treelang > .selectedlang").attr('id')+"+"+$("#wikilang > .selectedlang").attr('id');
 		window.localStorage.setItem("lang", savelang);
+		var largeur = window.innerWidth; // maj de la largeur en cas de modif
+		var hauteur = window.innerHeight; // maj de la largeur en cas de modif
+		displaySpecies(largeur,hauteur);
+		cleanBarre();
 	}
 	else {
 		console.log("rien à faire")
 
 	}
 }
-
