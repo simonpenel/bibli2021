@@ -5,7 +5,7 @@ var widthMax = 500; // Largeur max d'une vignette
 var borderSpecies = 20;  // Epaisseur entre les images d'especes
 var pictureDir = "img/speciesImages"  ; // Repertoire des images
 var indexLangue = 1;
-var barre_width_percent = 25;
+var barre_width_percent = 15;
 var selected = "";
 var police_size = 10;
 var arraySpecies = [
@@ -43,7 +43,6 @@ mapSpecies.forEach(function(valeur, clef) {
 // Affiche la barre qui contient les especes
 // -----------------------------------------
 function displaySpecies(largeur,hauteur){
-
 	var lang = document.getElementById('interfacelang');
 	var lang2 = lang.getElementsByClassName('row selectedlang');
 	console.log("LANGAGE IS "+lang2[0].id);
@@ -54,13 +53,12 @@ function displaySpecies(largeur,hauteur){
     indexLangue = 0;
   }
   var nbspec = data.length;
-  var topSpecies = 20;
-	// var nbcol = Math.floor( nbspec / 7 ) + 1;
-  // var nblin = Math.floor( nbspec / nbcol) + 1;
+  var topSpecies = 100;
 	var barre_width = barre_width_percent * largeur / 100 ;
 	var nblin = Math.floor(Math.sqrt(nbspec * hauteur / barre_width)) +1 ;
 	var nbcol = Math.floor( nbspec / nblin) + 1;
 	var leftSpecies = largeur - barre_width ;
+	var leftSpecies = 20 ;
   var width = Math.floor(barre_width / nbcol);
   var height = Math.floor(hauteur / nblin);
   if (width > height) {
@@ -71,20 +69,22 @@ function displaySpecies(largeur,hauteur){
   }
   width = width - borderSpecies;
   var element= document.getElementById('barre');
-  var divBarre = document.createElement("div");
-  // divBarre.setAttribute("style", "position:absolute; width:" + largeur+ "px;");
+  // pour visualiser la div: 
+	// element.setAttribute("style", "background-color:blue;position:absolute; left:" + leftSpecies + "px; top:" + topSpecies + "px; width:"+barre_width+"px; height:"+hauteur+"px;");
+	element.setAttribute("style", "position:absolute; left:" + leftSpecies + "px; top:" + topSpecies + "px; width:"+barre_width+"px; height:"+hauteur+"px;");
+	var divBarre = document.createElement("div");
   divBarre.setAttribute("id", 'posters');
   element.appendChild(divBarre);
   var j = topSpecies;
+  var j = 0;
   var k = 0;
   for (i = 0; i < nbspec; i++) {
-    addSpecies(data[i],k*(width)+leftSpecies,j,width-borderSpecies);
+    addSpecies(data[i],k*(width),j,width-borderSpecies);
     k++ ;
     if (k >= nbcol) {
       k = 0;
       j = j  + width + borderSpecies;
     }
-
   }
 }
 
@@ -94,33 +94,23 @@ function addSpecies(imageName,left,top,width) {
 console.log(imageName,left,top,width);
   var element= document.getElementById('posters');
   var divSpecies = document.createElement("div");
-  divSpecies.setAttribute("style", "position:absolute; left:" + left + "px; top:" + top + "px; width: "+width+"px; height:"+(width*1)+"px")
-  divSpecies.setAttribute("class","thumbnail");
+  divSpecies.setAttribute("style", "position:absolute; left:" + left + "px; top:" + top + "px; width: "+width+"px; height:"+(width*1)+"px");
   var divDescription = document.createElement("div");
-  divDescription.setAttribute("style", "position:absolute; left:" + left + "px; top:" +(police_size + 1.0*width+top) + "px; width: "+width+"px;")
+  divDescription.setAttribute("style", "position:absolute; left:" + left + "px; top:" +(police_size + 1.0*width+top) + "px; width: "+width+"px;");
   divDescription.setAttribute("class","description");
   divDescription.setAttribute("id", "legend_"+imageName);
-	var divDescriptionLatin = document.createElement("div");
-  divDescriptionLatin.setAttribute("style", "position:absolute; left:" + left + "px; top:" +(1.0*width+top) + "px; width: "+width+"px;")
-  divDescriptionLatin.setAttribute("class","description");
-  divDescriptionLatin.setAttribute("id", "legendLatin_"+imageName);
   var divImage = document.createElement("img");
   divImage.setAttribute("src", pictureDir+"/"+imageName+".jpg");
   divImage.setAttribute("style", "width: "+width+"px; border-radius: 20%");
   divImage.setAttribute("id", imageName);
   divImage.setAttribute("class","thumbnail");
   divImage.setAttribute("data-micron","tada");
-  // divImage.setAttribute("data-micron-bind",true);
   divImage.onclick = selectThis;
   console.log(dicoSpecies[imageName][indexLangue]);
-  var divLegendLatin = document.createTextNode(dicoSpecies[imageName][0]);
   var divLegend = document.createTextNode(dicoSpecies[imageName][indexLangue]);
-	divDescriptionLatin.appendChild(divLegendLatin);
   divDescription.appendChild(divLegend);
   divSpecies.appendChild(divImage);
-  // dragElement(divSpecies);
   element.appendChild(divSpecies);
-  // element.appendChild(divDescriptionLatin);
   element.appendChild(divDescription);
 }
 
@@ -138,6 +128,7 @@ function cleanBarre() {
 // Action quand on clique sur une espece
 // -------------------------------------
 function selectThis() {
+	console.log("SELECT");
 	// micron.getEle("#me").interaction("bounce");
   // micron.getEle("."+this.id).interaction("bounce");
   // this.interaction("bounce");
