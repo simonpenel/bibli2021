@@ -130,6 +130,27 @@ p {
 	box-shadow: 0 0 10px black;
 }
 
+
+
+/*CODE CONCERNING THE HALF CIRCLE BUTTON*/
+.halfcirclediv {
+  height: 100px;
+  width: 50px;
+  border-bottom-right-radius: 100px;
+  border-top-right-radius: 100px;
+  background-color: #c77f8b;
+  position : absolute;
+  left: 25%;
+  top: 85%;
+  text-align: right;
+  line-height:100px;
+  font-size: 80px;
+  padding-right: 8px;
+  color: black;
+}
+
+
+
 .btn-circle {
 	width: 50px;
 	height: 50px;
@@ -164,7 +185,7 @@ p {
 	border-radius: 50%;
 	position:absolute;
 	margin: auto;
-	background: #b4c3e0;
+	background: #c77f8b;
 	color:white;
 	right:1%;
 	box-shadow: 0 0 10px black;
@@ -342,10 +363,11 @@ a {
 .modal.left.fade.in .modal-dialog{
 	left: 0;
 }
-.fa{
+
+/*.fa{
 	font-size: 23px;
 }
-
+*/
 /*STYLES FOR SHARE BUTTONS*/
 ul.share-buttons{
 	list-style: none;
