@@ -69,7 +69,7 @@ function displaySpecies(largeur,hauteur){
   }
   width = width - borderSpecies;
   var element= document.getElementById('barre');
-  // pour visualiser la div: 
+  // pour visualiser la div:
 	// element.setAttribute("style", "background-color:blue;position:absolute; left:" + leftSpecies + "px; top:" + topSpecies + "px; width:"+barre_width+"px; height:"+hauteur+"px;");
 	element.setAttribute("style", "position:absolute; left:" + leftSpecies + "px; top:" + topSpecies + "px; width:"+barre_width+"px; height:"+hauteur+"px;");
 	var divBarre = document.createElement("div");
@@ -146,6 +146,7 @@ function selectThis() {
         map.setView(L.latLng([-5,0]),4);
       }
       else {map.flyTo( L.latLng([-5,0]),4);}
+			map.removeLayer(SPfocus);
     }
     else {
     $.ajax({
