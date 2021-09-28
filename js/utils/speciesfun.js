@@ -52,7 +52,7 @@ function displaySpecies_BS() {
 		divLine.setAttribute("class","row");
 		divLine.setAttribute("style", "padding:10px; margin: 0px");
 		for (col = 0; col <3; col ++ ) {
-			if (i > nbspec) {
+			if (i >= nbspec) {
 				break;
 			}
 			var divCol = document.createElement("div");
@@ -81,91 +81,91 @@ function displaySpecies_BS() {
 	}
 }
 
-// Affiche la barre qui contient les especes
-// -----------------------------------------
-function displaySpecies(largeur,hauteur){
-	var lang = document.getElementById('interfacelang');
-	var lang2 = lang.getElementsByClassName('row selectedlang');
-	console.log("LANGAGE IS "+lang2[0].id);
-	if (lang2[0].id === "int-fr") {
-    indexLangue = 1;
-  }
-  else {
-    indexLangue = 0;
-  }
-  var nbspec = data.length;
-  var topSpecies = 0;
-	var barre_width = barre_width_percent * largeur / 100 ;
-	var nblin = Math.floor(Math.sqrt(nbspec * hauteur / barre_width)) +1 ;
-	var nbcol = Math.floor( nbspec / nblin) + 1;
-	var leftSpecies = largeur - barre_width ;
-	var leftSpecies = 20 ;
-	var leftSpecies = barre_width ;
-  var width = Math.floor(barre_width / nbcol);
-  var height = Math.floor(hauteur / nblin);
-  if (width > height) {
-    width = height;
-  }
-  if (width > widthMax) {
-    width = widthMax;
-  }
-  width = width - borderSpecies;
-  var element= document.getElementById('barre');
-  // pour visualiser la div:
-	element.setAttribute("style", "background-color:blue;position:absolute; left:" + leftSpecies + "px; top:" + topSpecies + "px; width:"+barre_width+"px; height:"+hauteur+"px;");
-	//element.setAttribute("style", "position:absolute; left:" + leftSpecies + "px; top:" + topSpecies + "px; width:"+barre_width+"px; height:"+hauteur+"px;");
-	var divBarre = document.createElement("div");
-  divBarre.setAttribute("id", 'posters');
-  element.appendChild(divBarre);
-  var j = topSpecies;
-  var j = 0;
-  var k = 0;
-  for (i = 0; i < nbspec; i++) {
-    addSpecies(data[i],k*(width),j,width-borderSpecies);
-    k++ ;
-    if (k >= nbcol) {
-      k = 0;
-      j = j  + width + borderSpecies;
-    }
-  }
-}
-
-// Ajoute une espece dans la div posters
-// ------------------------------------
-function addSpecies(imageName,left,top,width) {
-console.log(imageName,left,top,width);
-  var element= document.getElementById('posters');
-  var divSpecies = document.createElement("div");
-  divSpecies.setAttribute("style", "position:absolute; left:" + left + "px; top:" + top + "px; width: "+width+"px; height:"+(width*1)+"px");
-  var divDescription = document.createElement("div");
-  divDescription.setAttribute("style", "position:absolute; left:" + left + "px; top:" +(police_size + 1.0*width+top) + "px; width: "+width+"px;");
-  divDescription.setAttribute("class","description");
-  divDescription.setAttribute("id", "legend_"+imageName);
-  var divImage = document.createElement("img");
-  divImage.setAttribute("src", pictureDir+"/"+imageName+".jpg");
-  divImage.setAttribute("style", "width: "+width+"px; border-radius: 20%");
-  divImage.setAttribute("id", imageName);
-  divImage.setAttribute("class","thumbnail");
-  divImage.setAttribute("data-micron","tada");
-  divImage.onclick = selectThis;
-  console.log(dicoSpecies[imageName][indexLangue]);
-  var divLegend = document.createTextNode(dicoSpecies[imageName][indexLangue]);
-  divDescription.appendChild(divLegend);
-  divSpecies.appendChild(divImage);
-  element.appendChild(divSpecies);
-  element.appendChild(divDescription);
-}
-
-// Efface les especes
-// ------------------
-function cleanBarre() {
-  var element= document.getElementById('barre');
-  var divBarre = document.getElementById('posters');
-  element.removeChild(divBarre);
-	var largeur = window.innerWidth; // maj de la largeur en cas de modif
-	var hauteur = window.innerHeight; // maj de la largeur en cas de modif
-	displaySpecies(largeur,hauteur);
-}
+// // Affiche la barre qui contient les especes
+// // -----------------------------------------
+// function displaySpecies(largeur,hauteur){
+// 	var lang = document.getElementById('interfacelang');
+// 	var lang2 = lang.getElementsByClassName('row selectedlang');
+// 	console.log("LANGAGE IS "+lang2[0].id);
+// 	if (lang2[0].id === "int-fr") {
+//     indexLangue = 1;
+//   }
+//   else {
+//     indexLangue = 0;
+//   }
+//   var nbspec = data.length;
+//   var topSpecies = 0;
+// 	var barre_width = barre_width_percent * largeur / 100 ;
+// 	var nblin = Math.floor(Math.sqrt(nbspec * hauteur / barre_width)) +1 ;
+// 	var nbcol = Math.floor( nbspec / nblin) + 1;
+// 	var leftSpecies = largeur - barre_width ;
+// 	var leftSpecies = 20 ;
+// 	var leftSpecies = barre_width ;
+//   var width = Math.floor(barre_width / nbcol);
+//   var height = Math.floor(hauteur / nblin);
+//   if (width > height) {
+//     width = height;
+//   }
+//   if (width > widthMax) {
+//     width = widthMax;
+//   }
+//   width = width - borderSpecies;
+//   var element= document.getElementById('barre');
+//   // pour visualiser la div:
+// 	element.setAttribute("style", "background-color:blue;position:absolute; left:" + leftSpecies + "px; top:" + topSpecies + "px; width:"+barre_width+"px; height:"+hauteur+"px;");
+// 	//element.setAttribute("style", "position:absolute; left:" + leftSpecies + "px; top:" + topSpecies + "px; width:"+barre_width+"px; height:"+hauteur+"px;");
+// 	var divBarre = document.createElement("div");
+//   divBarre.setAttribute("id", 'posters');
+//   element.appendChild(divBarre);
+//   var j = topSpecies;
+//   var j = 0;
+//   var k = 0;
+//   for (i = 0; i < nbspec; i++) {
+//     addSpecies(data[i],k*(width),j,width-borderSpecies);
+//     k++ ;
+//     if (k >= nbcol) {
+//       k = 0;
+//       j = j  + width + borderSpecies;
+//     }
+//   }
+// }
+//
+// // Ajoute une espece dans la div posters
+// // ------------------------------------
+// function addSpecies(imageName,left,top,width) {
+// console.log(imageName,left,top,width);
+//   var element= document.getElementById('posters');
+//   var divSpecies = document.createElement("div");
+//   divSpecies.setAttribute("style", "position:absolute; left:" + left + "px; top:" + top + "px; width: "+width+"px; height:"+(width*1)+"px");
+//   var divDescription = document.createElement("div");
+//   divDescription.setAttribute("style", "position:absolute; left:" + left + "px; top:" +(police_size + 1.0*width+top) + "px; width: "+width+"px;");
+//   divDescription.setAttribute("class","description");
+//   divDescription.setAttribute("id", "legend_"+imageName);
+//   var divImage = document.createElement("img");
+//   divImage.setAttribute("src", pictureDir+"/"+imageName+".jpg");
+//   divImage.setAttribute("style", "width: "+width+"px; border-radius: 20%");
+//   divImage.setAttribute("id", imageName);
+//   divImage.setAttribute("class","thumbnail");
+//   divImage.setAttribute("data-micron","tada");
+//   divImage.onclick = selectThis;
+//   console.log(dicoSpecies[imageName][indexLangue]);
+//   var divLegend = document.createTextNode(dicoSpecies[imageName][indexLangue]);
+//   divDescription.appendChild(divLegend);
+//   divSpecies.appendChild(divImage);
+//   element.appendChild(divSpecies);
+//   element.appendChild(divDescription);
+// }
+//
+// // Efface les especes
+// // ------------------
+// function cleanBarre() {
+//   var element= document.getElementById('barre');
+//   var divBarre = document.getElementById('posters');
+//   element.removeChild(divBarre);
+// 	var largeur = window.innerWidth; // maj de la largeur en cas de modif
+// 	var hauteur = window.innerHeight; // maj de la largeur en cas de modif
+// 	displaySpecies(largeur,hauteur);
+// }
 
 // Action quand on clique sur une espece
 // -------------------------------------
