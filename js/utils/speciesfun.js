@@ -71,8 +71,8 @@ function displaySpecies(largeur,hauteur){
   width = width - borderSpecies;
   var element= document.getElementById('barre');
   // pour visualiser la div:
-	// element.setAttribute("style", "background-color:blue;position:absolute; left:" + leftSpecies + "px; top:" + topSpecies + "px; width:"+barre_width+"px; height:"+hauteur+"px;");
-	element.setAttribute("style", "position:absolute; left:" + leftSpecies + "px; top:" + topSpecies + "px; width:"+barre_width+"px; height:"+hauteur+"px;");
+	element.setAttribute("style", "background-color:blue;position:absolute; left:" + leftSpecies + "px; top:" + topSpecies + "px; width:"+barre_width+"px; height:"+hauteur+"px;");
+	//element.setAttribute("style", "position:absolute; left:" + leftSpecies + "px; top:" + topSpecies + "px; width:"+barre_width+"px; height:"+hauteur+"px;");
 	var divBarre = document.createElement("div");
   divBarre.setAttribute("id", 'posters');
   element.appendChild(divBarre);
