@@ -40,6 +40,24 @@ mapSpecies.forEach(function(valeur, clef) {
   dicoSpecies[clef]=valeur;
 });
 
+
+// Affiche la barre qui contient les especes
+// -----------------------------------------
+function displaySpecies_BS() {
+  var element= document.getElementById('somespeciesafter');
+	var nbcol = 3;
+  var nbspec = data.length;
+	var j = 0;
+  var k = 0;
+  for (i = 0; i < nbspec; i++) {
+    addSpecies_BS(data[i],k*(width),j,width-borderSpecies);
+    k++ ;
+    if (k >= nbcol) {
+      k = 0;
+    }
+  }
+}
+
 // Affiche la barre qui contient les especes
 // -----------------------------------------
 function displaySpecies(largeur,hauteur){
