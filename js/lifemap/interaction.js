@@ -136,3 +136,8 @@
 	      		$(x).parents('div').hide();
 
 			}
+
+			//NEW : open and close the div with the species in the exhibition
+			$("#halfcirclediv").click(function() {
+				
+			})
