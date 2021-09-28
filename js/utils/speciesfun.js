@@ -53,7 +53,7 @@ function displaySpecies(largeur,hauteur){
     indexLangue = 0;
   }
   var nbspec = data.length;
-  var topSpecies = 100;
+  var topSpecies = 0;
 	var barre_width = barre_width_percent * largeur / 100 ;
 	var nblin = Math.floor(Math.sqrt(nbspec * hauteur / barre_width)) +1 ;
 	var nbcol = Math.floor( nbspec / nblin) + 1;
