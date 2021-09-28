@@ -170,7 +170,7 @@ function displaySpecies_BS() {
 // Action quand on clique sur une espece
 // -------------------------------------
 function selectThis() {
-	console.log("SELECT");
+	console.log("SELECT " + selected + " <==> " +this.id);
 	// micron.getEle("#me").interaction("bounce");
   // micron.getEle("."+this.id).interaction("bounce");
   // this.interaction("bounce");
@@ -218,25 +218,28 @@ function selectThis() {
       }
     grise(this.id);  // On la grise
     selected = this.id;
+		console.log(" SELECTED NOW = "+selected);
   }
 }
 
 // Grise une division
 // ------------------
 function grise (imageName) {
+	console.log("GRISE "+ imageName);
   var image = document.getElementById(imageName);
   image.style.opacity = "0.5";
   image.style.filter  = 'alpha(opacity=50)'; // IE fallback
-  var legend = document.getElementById("legend_"+imageName);
-  legend.style.color = "red";
+  // var legend = document.getElementById("legend_"+imageName);
+  // legend.style.color = "red";
 
 }
 // Degrise une division
 // ------------------
 function degrise (imageName) {
+	console.log("DEGRISE "+ imageName);
   var image = document.getElementById(imageName);
   image.style.opacity = "1.0";
   image.style.filter  = 'alpha(opacity=100)'; // IE fallback
-  var legend = document.getElementById("legend_"+imageName);
-  legend.style.color = "yellow";
+  // var legend = document.getElementById("legend_"+imageName);
+  // legend.style.color = "yellow";
 }
