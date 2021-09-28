@@ -138,6 +138,25 @@
 			}
 
 			//NEW : open and close the div with the species in the exhibition
-			$("#halfcirclediv").click(function() {
-				
+			$(".halfcirclediv").click(function() {
+				var caretstate = document.getElementById("carretstatehalfbut");
+				var spdivstate = document.getElementById("barre2");
+				console.log(caretstate.className)
+				if (spdivstate.className==="barreisclosed") { // OPEN IT
+					console.log("ioioioioio")
+					caretstate.className = "fa fa-caret-left";
+					spdivstate.className = "barreisopen";
+					$(".halfcirclediv").css("padding-right","18px");
+					$(".bottomleftdivfortext").hide();
+					$("#map").css({"width":"60%","transition": "width 2s"});
+					setTimeout(function(){ map.invalidateSize({animate:true})}, 2000);
+				}
+				else { // CLOSE IT
+					caretstate.className = "fa fa-caret-right";
+					spdivstate.className = "barreisclosed";
+					$(".halfcirclediv").css("padding-right","11px");
+					$(".bottomleftdivfortext").show();
+					$("#map").css({"width":"75%","transition": "width 2s"});
+					setTimeout(function(){ map.invalidateSize({animate:true})}, 2000);
+				}
 			})
