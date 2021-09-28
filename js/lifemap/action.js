@@ -9,9 +9,9 @@ function onLoad() {
 	document.addEventListener("offline", onOffline, false);
 	document.addEventListener("online", onOnline, false);displaySpecies(largeur,hauteur)
 */
-  var largeur = window.innerWidth; // maj de la largeur en cas de modif
+/*  var largeur = window.innerWidth; // maj de la largeur en cas de modif
 	var hauteur = window.innerHeight; // maj de la largeur en cas de modif
-	displaySpecies(largeur,hauteur);
+	displaySpecies(largeur,hauteur);*/
 }
 function onDeviceReady() {
 	// testCon();
