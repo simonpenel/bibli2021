@@ -130,7 +130,13 @@ p {
 	box-shadow: 0 0 10px black;
 }
 
-
+#barre2 { /*nouvelle div pour les espèces*/
+	position: absolute;
+	width: 15%;
+	height: 100%;
+	left: 25%; /*Same as width of leftdiv*/
+	background-color: #c77f8b;
+}
 
 /*CODE CONCERNING THE HALF CIRCLE BUTTON*/
 .halfcirclediv {
@@ -147,6 +153,8 @@ p {
   font-size: 80px;
   padding-right: 8px;
   color: black;
+  z-index: 5;
+  box-shadow: 0 0 10px black;
 }
 
 .bottomleftdivfortext {
