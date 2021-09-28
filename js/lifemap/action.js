@@ -12,6 +12,7 @@ function onLoad() {
 /*  var largeur = window.innerWidth; // maj de la largeur en cas de modif
 	var hauteur = window.innerHeight; // maj de la largeur en cas de modif
 	displaySpecies(largeur,hauteur);*/
+displaySpecies_BS();
 }
 function onDeviceReady() {
 	// testCon();

@@ -45,17 +45,40 @@ mapSpecies.forEach(function(valeur, clef) {
 // -----------------------------------------
 function displaySpecies_BS() {
   var element= document.getElementById('somespeciesafter');
-	var nbcol = 3;
   var nbspec = data.length;
-	var j = 0;
-  var k = 0;
-  for (i = 0; i < nbspec; i++) {
-    addSpecies_BS(data[i],k*(width),j,width-borderSpecies);
-    k++ ;
-    if (k >= nbcol) {
-      k = 0;
-    }
-  }
+	i = 0;
+	for (line = 0; line <= 6; line ++)  {
+		var divLine = document.createElement("div");
+		divLine.setAttribute("class","row");
+		divLine.setAttribute("style", "padding:10px; margin: 0px");
+		for (col = 0; col <3; col ++ ) {
+			if (i > nbspec) {
+				break;
+			}
+			var divCol = document.createElement("div");
+			divCol.setAttribute("class","col-xs-4");
+			var fig = document.createElement("figure");
+			fig.setAttribute("class","figure");
+			var divImage = document.createElement("img");
+			imageName = data[i];
+	  	divImage.setAttribute("src", pictureDir+"/"+imageName+".jpg");
+	  	divImage.setAttribute("style", "width:100%");
+	  	divImage.setAttribute("id", imageName);
+	  	divImage.setAttribute("class","figure-img img-fluid rounded");
+	  	divImage.setAttribute("data-micron","tada");
+	  	divImage.onclick = selectThis;
+			var caption = document.createElement("figcaption");
+			caption.setAttribute("class","figure-caption");
+			var divLegend = document.createTextNode(dicoSpecies[imageName][indexLangue]);
+			caption.appendChild(divLegend);
+			fig.appendChild(divImage);
+			fig.appendChild(caption);
+			divCol.appendChild(fig);
+			divLine.appendChild(divCol);
+			i ++;
+		}
+		element.appendChild(divLine);
+	}
 }
 
 // Affiche la barre qui contient les especes
