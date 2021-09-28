@@ -149,6 +149,22 @@ p {
   color: black;
 }
 
+.bottomleftdivfortext {
+	position: absolute;
+	height: 100px; /*same than the height of halfcirclediv*/
+	width: 100%;
+	top: 85%;/*same than "top" for halfcirclediv*/ 
+	right: 0px;
+	padding-right: 30px;
+	padding-left: 50%;
+	font-size: 14pt;
+	display:flex;
+	justify-content:flex-end;
+	align-items:center;
+	text-align: right;
+	font-weight: 600;
+}
+
 
 
 .btn-circle {
