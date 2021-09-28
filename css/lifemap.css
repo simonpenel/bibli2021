@@ -137,6 +137,14 @@ p {
 	left: 25%; /*Same as width of leftdiv*/
 	background-color: #c77f8b;
 }
+#sometextontop {
+	text-align: center;
+	font-weight: 600;
+	font-size: 14pt;
+	font-family: 'Montserrat', sans-serif;
+	color:white;
+	padding: 30px;
+}
 
 /*CODE CONCERNING THE HALF CIRCLE BUTTON*/
 .halfcirclediv {
@@ -146,15 +154,15 @@ p {
   border-top-right-radius: 100px;
   background-color: #c77f8b;
   position : absolute;
-  left: 25%;
+  left: 40%;
   top: 85%;
   text-align: right;
   line-height:100px;
   font-size: 80px;
-  padding-right: 8px;
+  padding-right: 18px;
   color: black;
   z-index: 5;
-  box-shadow: 0 0 10px black;
+/*  box-shadow: 0 0 10px black;*/
 }
 
 .bottomleftdivfortext {
