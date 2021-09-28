@@ -154,7 +154,8 @@ p {
   border-top-right-radius: 100px;
   background-color: #c77f8b;
   position : absolute;
-  left: 40%;
+  right: 0px;
+  margin-right: -50px;
   top: 85%;
   text-align: right;
   line-height:100px;
