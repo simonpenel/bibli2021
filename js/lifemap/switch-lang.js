@@ -162,7 +162,7 @@ function chooselang(x) {
 		var largeur = window.innerWidth; // maj de la largeur en cas de modif
 		var hauteur = window.innerHeight; // maj de la largeur en cas de modif
 //		displaySpecies(largeur,hauteur);
-		cleanBarre();
+//		cleanBarre();
 	}
 	else {
 		console.log("rien à faire")
