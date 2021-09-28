@@ -69,6 +69,7 @@ function displaySpecies_BS() {
 	  	divImage.onclick = selectThis;
 			var caption = document.createElement("figcaption");
 			caption.setAttribute("class","figure-caption");
+			caption.setAttribute("id","legend_"+imageName);
 			var divLegend = document.createTextNode(dicoSpecies[imageName][indexLangue]);
 			caption.appendChild(divLegend);
 			fig.appendChild(divImage);
@@ -229,8 +230,8 @@ function grise (imageName) {
   var image = document.getElementById(imageName);
   image.style.opacity = "0.5";
   image.style.filter  = 'alpha(opacity=50)'; // IE fallback
-  // var legend = document.getElementById("legend_"+imageName);
-  // legend.style.color = "red";
+  var legend = document.getElementById("legend_"+imageName);
+  legend.style.color = "red";
 
 }
 // Degrise une division
@@ -240,6 +241,6 @@ function degrise (imageName) {
   var image = document.getElementById(imageName);
   image.style.opacity = "1.0";
   image.style.filter  = 'alpha(opacity=100)'; // IE fallback
-  // var legend = document.getElementById("legend_"+imageName);
-  // legend.style.color = "yellow";
+  var legend = document.getElementById("legend_"+imageName);
+  legend.style.color = "black";
 }
