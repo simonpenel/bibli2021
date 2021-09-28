@@ -59,6 +59,7 @@ function displaySpecies(largeur,hauteur){
 	var nbcol = Math.floor( nbspec / nblin) + 1;
 	var leftSpecies = largeur - barre_width ;
 	var leftSpecies = 20 ;
+	var leftSpecies = barre_width ;
   var width = Math.floor(barre_width / nbcol);
   var height = Math.floor(hauteur / nblin);
   if (width > height) {
