@@ -5,7 +5,7 @@ function setmaplayer(tolUrl) {
 	$("#searchinput").val(''); //remove what was in the search box when changing tree. 
 	var tol = new L.TileLayer(tolUrl, {minZoom: 2, maxZoom: 42, detectRetina:false});
 	map.addLayer(tol);
-	map.setView([-5,0], 4);
+	map.setView([-5,0], 5);
 }
 //setmaplayer('http://lifemap.univ-lyon1.fr/retina_tiles/{z}/{x}/{y}.png');
 map.on("moveend", function() {

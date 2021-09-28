@@ -29,6 +29,8 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+		<!--ICONES GOOGLE -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<!--Ajout Simon-->
 <!-- 	    <script type="text/javascript" src="js/utils/speciesfun.js"></script> -->
 
@@ -227,11 +229,33 @@
 			</div>
 			<div id="mainsearch" class="container-fluid" style="background:transparent; margin: 10px 10px 0px 10px; padding-top:30px; z-index:10;">
 				<div class="btn-group" style="width:100%;">
-					<span id="sandwich" class="glyphicon glyphicon-menu-hamburger"></span>
+					<span id="sandwich" class="glyphicon glyphicon-menu-hamburger" style="display:none"></span>
 					<input id="searchinput" type="search" class="form-control" style=" height:50px;" placeholder="Search species, clades, ...">
-					<span id="searchclear" class="glyphicon glyphicon-remove"></span>
+					<span id="searchclear" class="material-icons">clear</span> 
+					<span id="route" class="material-icons">shortcut</span> 
+					<span id="diamond" class="material-icons">stop</span>
+					<span id="vertical">|</span>
+
 				</div>
 				<div class="divconnectionerror" hidden><i class="fa fa-wifi" style="font-size:inherit;">&nbsp;</i><span id="connectionerror"></span></div>
+			</div>
+					<!-- ITINERARIES SEARCH DIV (TOP) -->
+			<div id="route-top" class="container-fluid" hidden>
+				<div class="row" style="height: 20px;">&nbsp;</div>
+				<div class="row">
+					<div class="col-xs-2" style=" padding-left:0px; padding-right:0px;"><a id="back-to-map" class="btn" style="color:white;"><i class="fa fa-arrow-left"></i></a></div>
+					<div class="col-xs-10" style="padding-left:0px;">
+						<input id="searchinput2" type="search" class="form-control" placeholder="From species, clade...">
+					</div>
+				</div>
+				<div class="row">&nbsp;</div>
+				<div class="row">
+					<div class="col-xs-2"></div>
+					<div class="col-xs-10" style="padding-left:0px;">
+						<input id="searchinput3" type="search" class="form-control" placeholder="To species, clade...">
+					</div>
+				</div>
+				<div class="row">&nbsp;</div>
 			</div>
 			<div class="bottomleftdivfortext">
 				Accédez rapidement aux espèces vues dans l'exposition ! 
@@ -250,15 +274,13 @@
 			<div class="divconnectionerror" hidden><i class="fa fa-wifi" style="font-size:inherit;">&nbsp;</i><span id="connectionerror"></span></div>
 		</div>
  -->		<!--ITINERARY SEARCH BUTTON-->
-		<a id="route" class="btn btn-default btn-circle">
-			<i class="fa fa-level-up"></i>
-		</a>
+
 		<!--choose language button-->
-		<a id="langchoicebutton" class="btn btn-default btn-circle3" onclick="zoomTo(1);" style="top:1%;" >
+		<a id="langchoicebutton" class="btn btn-default btn-circle3" onclick="zoomTo(1);" style="top:2%;" >
 			<i class="fa fa-language"></i>
 		</a>
 		<!--Home button-->
-		<a id="logohome" class="btn btn-default btn-circle3" onclick="zoomTo(1);" style="top:6%;">
+		<a id="logohome" class="btn btn-default btn-circle3" style="top:8%;">
 			<i class="fa fa-home"></i>
 		</a>
 
@@ -300,24 +322,7 @@
 			<img src="img/LMtext1.png" height="20px">
 		</div>
  -->
-		<!-- ITINERARIES SEARCH DIV (TOP) -->
-		<div id="route-top" class="container-fluid" style=" padding-left:15px; padding-right:35px; background:#b4c3e0; box-shadow: 0 0 10px black; position: absolute; right:75%; left:0px; top:0; z-index: 100;" hidden>
-			<div class="row" style="height: 30px;">&nbsp;</div>
-			<div class="row">
-				<div class="col-xs-2" style=" padding-left:0px; padding-right:0px;"><a id="back-to-map" class="btn" style="color:white;"><i class="fa fa-arrow-left"></i></a></div>
-				<div class="col-xs-10" style="padding-left:0px;">
-					<input id="searchinput2" type="search" class="form-control" placeholder="From species, clade...">
-				</div>
-			</div>
-			<div class="row">&nbsp;</div>
-			<div class="row">
-				<div class="col-xs-2"></div>
-				<div class="col-xs-10" style="padding-left:0px;">
-					<input id="searchinput3" type="search" class="form-control" placeholder="To species, clade...">
-				</div>
-			</div>
-			<div class="row">&nbsp;</div>
-		</div>
+
 
 
 <!-- 		<div id="imageexpo" style="color:white; position:absolute; top:0px; right:0px; height:40%;">
@@ -326,7 +331,7 @@
 		</div>
  -->
 		<!--ITINERARY RESULTS DIV (BOTTOM)-->
-		<div id="route-bottom" class="container-fluid" style="position: absolute; right:75%; left:0px; bottom:0; z-index:1000; background:white; box-shadow: 0 0 10px black;" hidden>
+		<div id="route-bottom" class="container-fluid" style="position: absolute; right:75%; left:0px; bottom:0; z-index:1000; background:white; box-shadow: 0 0 10px black; font-size:large; font-family: 'Montserrat', sans-serif;" hidden>
 			<div class="row" style="padding:10px;">
 				<div class="col-xs-8 vcenter">
 					<div class="row"><i class="fa fa-map-marker fa-fw" style="color:#ffcc00; text-shadow: 1px 1px 1px #ccc;"></i><span id="routefrom"></span></div>
@@ -337,8 +342,8 @@
 					</div>
 					<div class="row"><i class="fa fa-map-marker fa-fw" style="color:blue; text-shadow: 1px 1px 1px #ccc;"></i><span id="routeto"></span></div>
 				</div><!--
-				      --><div class="col-xs-2 vcenter"><a href="#" id="recenter" class="btn btn-lg" style="color:#b4c3e0;"><i class="fa fa-dot-circle-o"></i></a></div><!--
-				      --><div class="col-xs-2 vcenter"><a href="#" id="getroutedetails" class="btn btn-lg" style="color:#b4c3e0;"><i class="fa fa-list"></i></a></div>
+				      --><div class="col-xs-2 vcenter"><a href="#" id="recenter" class="btn btn-lg" style="color:#b4c3e0;"><i class="fa fa-dot-circle-o fa-lg"></i></a></div><!--
+				      --><div class="col-xs-2 vcenter"><a href="#" id="getroutedetails" class="btn btn-lg" style="color:#b4c3e0;"><i class="fa fa-list fa-lg"></i></a></div>
 			</div>
 		</div>
 		<!--ITINERARY DETAILS DIV ///// TODO-->

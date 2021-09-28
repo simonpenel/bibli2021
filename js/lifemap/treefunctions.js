@@ -37,9 +37,9 @@ function getRoute(a1, a2) {
  		var url = 'http://'+ServerAddress+'/solr/taxo/select?q=taxid:"'+taxid+'"&wt=json';
 	if (taxid === 1) {
 		if ($('#ChoiceExplo').find('i').attr('class').match("fa-check-square-o")===null) {
-			map.setView(L.latLng([-5,0]),4);
+			map.setView(L.latLng([-5,0]),5);
 		}
-		else {map.flyTo( L.latLng([-5,0]),4);}
+		else {map.flyTo( L.latLng([-5,0]),5);}
 	}
 	else if (typeof taxid != 'undefined') {
   		$.ajax({

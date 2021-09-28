@@ -103,7 +103,9 @@
 				$("#theMenu").modal("toggle");
 	      		$("#langchoice").modal("toggle");
 			})
-
+			$("#langchoicebutton").click(function() {
+	      		$("#langchoice").modal("toggle");
+			})
 			$("#favoritesclick").click(function() {
 				var isvisible = document.getElementById("favoritesdiv");
 				var caretstate = document.getElementById("caretdown1"); 
@@ -159,4 +161,8 @@
 					$("#map").css({"width":"75%","transition": "width 2s"});
 					setTimeout(function(){ map.invalidateSize({animate:true})}, 2000);
 				}
+			})
+
+			$("#logohome").click(function() {
+				zoomTo(1);
 			})
