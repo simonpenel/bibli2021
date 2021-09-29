@@ -190,3 +190,7 @@
 				$("#back-to-map").click();
 				$("#searchclear").click();
 			}
+
+			function displayQRcode() {
+				$("#qrcode").modal("toggle");
+			}

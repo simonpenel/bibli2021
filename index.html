@@ -286,7 +286,7 @@
 			<i class="fa fa-question-circle"></i>
 		</a>
 		<!--QRcode button-->
-		<a id="logoQRcode" class="btn btn-default btn-circle3" style="top:22%;">
+		<a id="logoQRcode" class="btn btn-default btn-circle3" style="top:22%;" onclick="displayQRcode();" >
 			<i class="fa fa-qrcode"></i>
 		</a>
 		<!--Home button-->
@@ -474,6 +474,34 @@
 				</div>
 			</div>
 		</div>
+
+
+		<!--QRCODE MODAL-->
+		<div id="qrcode" class="modal fade" role="dialog">
+QRCODE ICI
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header text-center">
+			<p style="color:grey;"><i class='fa fa-language fa-lg fa-fw'></i></p>
+		</div>
+		<div class="modal-body text-center">
+		<img src="img/qr-code-lifemap.svg" width="200px">
+			<div class="row langchoicemodal">
+				<div class="col-xs-4">
+				</div>
+				<div class="col-xs-4">
+				</div>
+				<div class="col-xs-4">
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button id="closelangchoice" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>
+		</div>
+
 
 		<!--LANGUAGE CHOICE MODAL-->
 		<div id="langchoice" class="modal fade" role="dialog">
