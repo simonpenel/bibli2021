@@ -8,26 +8,49 @@ var indexLangue = 1;
 var barre_width_percent = 15;
 var selected = "";
 var police_size = 10;
-var arraySpecies = [
-		 [9606,    ["Homo sapiens","Humain"]],
-		 [10090,   ["Mus musculus","Souris grise"]],
-		 [59546,   ["Damaliscus jimela","Topi du Serengeti"]],
-		 [85517,   ["Phacochoerus aethiopicus","Phacochère commun"]],
-		 [9927,    ["Connochaetes taurinus","Gnou bleu"]],
-		 [9970,    ["Syncerus caffer","Buffle d'Afrique"]],
-		 [9785,    ["Loxodonta africana","Eléphant d'Afrique"]],
-		 [9689,    ["Panthera leo","Lion"]],
-		 [9678,    ["Crocuta crocuta","Hyène tachetée"]],
-		 [94188,    ["Cryptoprocta ferox","Fossa"]],
-		 [9622,    ["Lycaon    pictus","Lycaon"]],
-		 [9447,    ["Lemur catta","Maki catta"]],
-		 [31869,    ["Daubentonia madagascariensis","Aye-Aye"]],
-		 [5699,    ["Trypanosoma vivax","Trypanosoma vivax"]],
-		 [9993,    ["Marmota marmota","Marmotte"]],
-		 [7227,    ["Drosophila melanogaster","Mouche du vinaigre"]],
-		 [28584,   ["Drosophila suzukii","Moucheron asiatique"]],
-		 [63433,   ["Leptopilina boulardi","Guêpe parasitoïde"]]
-		];
+// var arraySpecies = [
+		//  [9606,    ["Homo sapiens","Humain"]],
+		//  [10090,   ["Mus musculus","Souris grise"]],
+		//  [59546,   ["Damaliscus jimela","Topi du Serengeti"]],
+		//  [85517,   ["Phacochoerus aethiopicus","Phacochère commun"]],
+		//  [9927,    ["Connochaetes taurinus","Gnou bleu"]],
+		//  [9970,    ["Syncerus caffer","Buffle d'Afrique"]],
+		//  [9785,    ["Loxodonta africana","Eléphant d'Afrique"]],
+		//  [9689,    ["Panthera leo","Lion"]],
+		//  [9678,    ["Crocuta crocuta","Hyène tachetée"]],
+		//  [94188,    ["Cryptoprocta ferox","Fossa"]],
+		//  [9622,    ["Lycaon    pictus","Lycaon"]],
+		//  [9447,    ["Lemur catta","Maki catta"]],
+		//  [31869,    ["Daubentonia madagascariensis","Aye-Aye"]],
+		//  [5699,    ["Trypanosoma vivax","Trypanosoma vivax"]],
+		//  [9993,    ["Marmota marmota","Marmotte"]],
+		//  [7227,    ["Drosophila melanogaster","Mouche du vinaigre"]],
+		//  [28584,   ["Drosophila suzukii","Moucheron asiatique"]],
+		//  [63433,   ["Leptopilina boulardi","Guêpe parasitoïde"]]
+		// ];
+
+
+		var arraySpecies = [
+				 [9606,    ["Human","Humain"]],
+				 [10090,   ["House mouse","Souris grise"]],
+				 [59546,   ["Topi","Topi du Serengeti"]],
+				 [85517,   ["Desert warthog ","Phacochère commun"]],
+				 [9927,    ["Blue wildebeest ","Gnou bleu"]],
+				 [9970,    ["African buffalo","Buffle d'Afrique"]],
+				 [9785,    ["African bush elephant ","Eléphant d'Afrique"]],
+				 [9689,    ["Lion","Lion"]],
+				 [9678,    ["Spotted hyena","Hyène tachetée"]],
+				 [94188,   ["Fossa","Fossa"]],
+				 [9622,    ["African wild dog","Lycaon"]],
+				 [9447,    ["Ring-tailed lemur ","Maki catta"]],
+				 [31869,   ["Aye-Aye","Aye-Aye"]],
+				 [5699,    ["Trypanosoma vivax","Trypanosoma vivax"]],
+				 [9993,    ["Alpine marmot","Marmotte"]],
+				 [7227,    ["Vinegar fly","Mouche du vinaigre"]],
+				 [28584,   ["Spotted wing drosophila","Moucheron asiatique"]],
+				 [63433,   ["Parasitoid wasp","Guêpe parasitoïde"]]
+				];
+
 
 // Cree une map a partir du tableau
 // On utilise une map pour preserver
