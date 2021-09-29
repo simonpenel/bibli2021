@@ -154,9 +154,12 @@ body,html {
     text-decoration: underline;
 }
 
-#langchoice {
+#langchoice,#qrcode {
 	font-size: large;
+	font-family: 'Montserrat',sans-serif;
+	font-weight: 400;
 }
+
 .langchoicemodal {
 	font-variant: small-caps;
 	color:#434343;

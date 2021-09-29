@@ -71,6 +71,8 @@ function SwitchInterfaceToFR() {
 	$("#texteaccrochefds").html("Explorez avec Lifemap les liens de parenté entre toutes les espèces du monde vivant...")
 	$("#textequickaccess").html("Accédez rapidement aux espèces vues dans l'exposition !")
 	$("#textequickaccess2").html("Accédez rapidement aux espèces vues dans l'exposition !")
+	//qrcode
+	$("#texteqrcode").html("<b>Téléchargez l'application Lifemap</b><br>pour prolonger l'expérience. <br><small>Scannez le QR code ci-dessous pour accéder au Play Store d'Android</small>")
 
 }
 function SwitchInterfaceToEN() {
@@ -133,6 +135,8 @@ function SwitchInterfaceToEN() {
 	$("#texteaccrochefds").html("Explore with Lifemap the evolutionary links connecting all species on earth...")
 	$("#textequickaccess").html("Quick access to the species seen in the exhibition!")
 	$("#textequickaccess2").html("Quick access to the species seen in the exhibition!")
+	//qr code
+	$("#texteqrcode").html("<b>Download the Lifemap App</b><br>to keep exploring the Tree of Life! <br><small>Scan the QR code below and download it on the Android Play Store</small>")
 }
 function SwitchTreeVersion(treeversion) {
 	console.log(treeversion)
