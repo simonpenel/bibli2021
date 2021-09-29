@@ -165,4 +165,8 @@
 
 			$("#logohome").click(function() {
 				zoomTo(1);
+				map.removeLayer(SPfocus);    
+				if (selected) {
+      				degrise(selected);
+      			}
 			})
