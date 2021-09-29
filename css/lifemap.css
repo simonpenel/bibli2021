@@ -120,6 +120,14 @@ body,html {
 	cursor: pointer;
 	color: #585858;
 }
+#somespeciesafter {
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+    font-size: 9pt;
+    font-weight: 500;
+    text-align: center;
+}
+
 .routestick {
 	box-shadow:1px 1px 2px 0.2px #656565;				
 	background:white;

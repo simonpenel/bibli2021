@@ -165,4 +165,5 @@
 
 			$("#logohome").click(function() {
 				zoomTo(1);
+				
 			})
