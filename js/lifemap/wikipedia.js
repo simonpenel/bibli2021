@@ -43,11 +43,12 @@ function markofun(taxid, spname,comname, rank) {
 		getWikiDesc(spname).then(function(resu){
 			if (resu!=null) {
 				text = '<div>' + resu.extract + '</div>';
-				text += "<div style='padding-bottom:10px;text-align:right; font-size:xx-small;'><a href='https://"+wikilang+".wikipedia.org/wiki/" + spname + "' target='_blank' style='color:grey;'>"+wikimoreon+"<i class='fa fa-wikipedia-w'></i>ikipedia</a><br></div>";
+				//text += "<div style='padding-bottom:10px;text-align:right; font-size:xx-small;'><a href='https://"+wikilang+".wikipedia.org/wiki/" + spname + "' target='_blank' style='color:grey;'>"+wikimoreon+"<i class='fa fa-wikipedia-w'></i>ikipedia</a><br></div>";
 				$('#modalbody-text').append(text);	
 				if (resu.thumbnail!==undefined) {
 					//we add the image to the popup
-					pict = '<div><a href="https://'+wikilang+'.wikipedia.org/wiki/' + spname + '" target="_blank"><img src ='+resu.thumbnail.source+' width="100%"></a></div>'
+					//pict = '<div><a href="https://'+wikilang+'.wikipedia.org/wiki/' + spname + '" target="_blank"><img src ='+resu.thumbnail.source+' width="100%"></a></div>'
+					pict = '<div><img src ='+resu.thumbnail.source+' width="100%"></a></div>'
 					$('#modalbody-pict').append(pict);
 				}
 				else {

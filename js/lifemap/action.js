@@ -3,6 +3,8 @@ Functions that deal with navigation and language switch
 */
 function onLoad() {
 	SwitchLanguage("int-fr","tree-fr","wiki-fr"); // IMPORTANT!!! REMOVE FOR PROD ON PHONES
+//  Ajout Simon:
+	setupTimers();
 //	console.log(navigator.language)
 	//UNCOMMENT WHAT FOLLOWS WHEN THE FR VERSION IS READY. AND TERMINATE THE TRANSLATION (TODO)
 /*	document.addEventListener("deviceready", onDeviceReady, false);
