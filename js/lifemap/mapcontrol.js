@@ -3,7 +3,11 @@ function setmaplayer(tolUrl) {
 	if (map.hasLayer(tol)) map.removeLayer(tol)
 	if (map.hasLayer(SPfocus)) map.removeLayer(SPfocus)
 	$("#searchinput").val(''); //remove what was in the search box when changing tree. 
-	var tol = new L.TileLayer(tolUrl, {minZoom: 2, maxZoom: 42, detectRetina:false});
+	var tol = new L.TileLayer(tolUrl, {minZoom: 2, maxZoom: 42, detectRetina:false, attribution: '<span id="attrib"><b>Lifemap</b> pour l\'exposition \" Espèces de climat\" (2021) || Auteur : Damien M. de Vienne, CNRS, Univ-Lyon 1, LBBE | Données : NCBI | contributeurs: Simon Penel, Bruno Spataro, Stéphane Delmotte | Leaflet.js</span>'});
+	map.addControl(L.control.attribution({
+        position: 'bottomright',
+        prefix: ''
+    }));
 	map.addLayer(tol);
 	map.setView([-5,0], 5);
 }
