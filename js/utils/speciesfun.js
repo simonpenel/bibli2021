@@ -273,7 +273,7 @@ function grise (imageName) {
   image.style.opacity = "0.5";
   image.style.filter  = 'alpha(opacity=50)'; // IE fallback
   var legend = document.getElementById("legend_"+imageName);
-  legend.style.color = "red";
+  legend.style.color = "black";
 
 }
 // Degrise une division

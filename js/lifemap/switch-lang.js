@@ -67,6 +67,11 @@ function SwitchInterfaceToFR() {
 	$("#tuto-page3").html("<p>Tous les noeuds dans l'arbre sont cliquables. Ceci donne accès à des informations (descriptions et photos) provenant de Wikipedia.</p><p>Des \"trajets\" dans l'arbre peuvent être affichés en cliquant sur la flèche (<i class='fa fa-level-up'></i>) dans le coin inférieur droit et en indiquant le nom d'une espèce de départ et d'une espèce d'arrivée. Ceci permet d'identifier facilement l'ancêtre commun le plus récent (MRCA) entre deux espèces ou groupes d'espèces.</p>")
 	$("#tuto-page4").html("<p>Lifemap a été écrit et est maintenu par Damien de Vienne.</p><p>Les serveurs hébergeant Lifemap sont fournis par le Laboratoire de Biométrie et Biologie Évolutive (LBBE). Le soutien technique pour ces serveurs est assuré par Bruno Spataro et Stephane Delmotte.</p>")
 	$("#tuto-page5").html("")
+	//texte expo
+	$("#texteaccrochefds").html("Explorez avec Lifemap les liens de parenté entre toutes les espèces du monde vivant...")
+	$("#textequickaccess").html("Accédez rapidement aux espèces vues dans l'exposition !")
+	$("#textequickaccess2").html("Accédez rapidement aux espèces vues dans l'exposition !")
+
 }
 function SwitchInterfaceToEN() {
 	//connection
@@ -124,7 +129,10 @@ function SwitchInterfaceToEN() {
 	$("#tuto-page3").html("All the nodes in the tree can be clicked. It displays information (description and picture) concerning the taxa (retrieved from the <i class='fa fa-wikipedia-w'></i>ikipedia page, if any). <br>\"Routes\" in the taxonomy can also be displayed by clicking on <i class='fa fa-level-up'></i> on the bottom right corner and entering a source and a destination. This allows identifying easily the most recent common ancestor (MRCA) of two lineages.")
 	$("#tuto-page4").html("Lifemap was written and is maintained by Damien de Vienne. Servers hosting Lifemap are provided by the Laboratory of Biometry and Evolutionary Biology (LBBE, Lyon, France). Technical support concerning these servers is ensured by Bruno Spataro and Stephane Delmotte.")
 	$("#tuto-page5").html("<span xmlns:dct='http://purl.org/dc/terms/'' property='dct:title'>Lifemap</span> is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc/4.0/'>Creative Commons Attribution-NonCommercial 4.0 International License</a>.")
-
+	//texte expo
+	$("#texteaccrochefds").html("Explore with Lifemap the evolutionary links connecting all species on earth...")
+	$("#textequickaccess").html("Quick access to the species seen in the exhibition!")
+	$("#textequickaccess2").html("Quick access to the species seen in the exhibition!")
 }
 function SwitchTreeVersion(treeversion) {
 	console.log(treeversion)
