@@ -138,14 +138,23 @@
 	      		$(x).parents('div').hide();
 
 			}
-
 			//NEW : open and close the div with the species in the exhibition
-			$(".halfcirclediv").click(function() {
+			function closebarre2() {
 				var caretstate = document.getElementById("carretstatehalfbut");
 				var spdivstate = document.getElementById("barre2");
-				console.log(caretstate.className)
-				if (spdivstate.className==="barreisclosed") { // OPEN IT
-					console.log("ioioioioio")
+				if (spdivstate.className==="barreisopen") {
+					caretstate.className = "fa fa-caret-right";
+					spdivstate.className = "barreisclosed";
+					$(".halfcirclediv").css("padding-right","11px");
+					$(".bottomleftdivfortext").show();
+					$("#map").css({"width":"75%","transition": "width 2s"});
+					setTimeout(function(){ map.invalidateSize({animate:true})}, 2000);
+				}
+			}
+			function openbarre2() {
+				var caretstate = document.getElementById("carretstatehalfbut");
+				var spdivstate = document.getElementById("barre2");
+				if (spdivstate.className==="barreisclosed") {
 					caretstate.className = "fa fa-caret-left";
 					spdivstate.className = "barreisopen";
 					$(".halfcirclediv").css("padding-right","18px");
@@ -153,13 +162,15 @@
 					$("#map").css({"width":"60%","transition": "width 2s"});
 					setTimeout(function(){ map.invalidateSize({animate:true})}, 2000);
 				}
+			}
+
+			$(".halfcirclediv").click(function() {
+				var spdivstate = document.getElementById("barre2");
+				if (spdivstate.className==="barreisclosed") { // OPEN IT
+					openbarre2()
+				}
 				else { // CLOSE IT
-					caretstate.className = "fa fa-caret-right";
-					spdivstate.className = "barreisclosed";
-					$(".halfcirclediv").css("padding-right","11px");
-					$(".bottomleftdivfortext").show();
-					$("#map").css({"width":"75%","transition": "width 2s"});
-					setTimeout(function(){ map.invalidateSize({animate:true})}, 2000);
+					closebarre2()
 				}
 			})
 
