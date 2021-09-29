@@ -226,9 +226,9 @@ function selectThis() {
       degrise(selected);
       selected = 0;
       if ($('#ChoiceExplo').find('i').attr('class').match("fa-check-square-o")===null) {
-        map.setView(L.latLng([-5,0]),4);
+        map.setView(L.latLng([-5,0]),5);
       }
-      else {map.flyTo( L.latLng([-5,0]),4);}
+      else {map.flyTo( L.latLng([-5,0]),5);}
 			map.removeLayer(SPfocus);
     }
     else {
@@ -282,5 +282,5 @@ function degrise (imageName) {
   image.style.opacity = "1.0";
   image.style.filter  = 'alpha(opacity=100)'; // IE fallback
   var legend = document.getElementById("legend_"+imageName);
-  legend.style.color = "black";
+  legend.style.color = "white";
 }
