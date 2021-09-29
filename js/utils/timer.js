@@ -1,4 +1,4 @@
-var timeoutInMiliseconds = 20000;
+var timeoutInMiliseconds = 5000;
 var timeoutId;
 
 function startTimer() {
@@ -16,9 +16,9 @@ function doInactive() {
 	if (selected) {
 		degrise(selected);
 	}
-    //close sliding window if open
-    closebarre2()
-    //remove way between species if any
+    //get back to initial step
+    BackToInitialStep()
+
 }
 
 function resetTimer() {

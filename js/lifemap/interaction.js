@@ -183,3 +183,10 @@
       				degrise(selected);
       			}
 			})
+
+
+			function BackToInitialStep() {
+				closebarre2();
+				$("#back-to-map").click();
+				$("#searchclear").click();
+			}
