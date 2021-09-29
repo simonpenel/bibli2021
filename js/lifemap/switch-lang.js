@@ -159,10 +159,7 @@ function chooselang(x) {
 		//WE STORE THE NEW COMBINATION OF CHOICES FOR LATER START.
 		savelang = $("#interfacelang > .selectedlang").attr('id')+"+"+$("#treelang > .selectedlang").attr('id')+"+"+$("#wikilang > .selectedlang").attr('id');
 		window.localStorage.setItem("lang", savelang);
-		var largeur = window.innerWidth; // maj de la largeur en cas de modif
-		var hauteur = window.innerHeight; // maj de la largeur en cas de modif
-//		displaySpecies(largeur,hauteur);
-//		cleanBarre();
+		redisplaySpecies_BS();
 	}
 	else {
 		console.log("rien à faire")

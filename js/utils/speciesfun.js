@@ -44,6 +44,15 @@ mapSpecies.forEach(function(valeur, clef) {
 // Affiche la barre qui contient les especes
 // -----------------------------------------
 function displaySpecies_BS() {
+		var lang = document.getElementById('interfacelang');
+		var lang2 = lang.getElementsByClassName('row selectedlang');
+		console.log("LANGAGE IS "+lang2[0].id);
+		if (lang2[0].id === "int-fr") {
+	    indexLangue = 1;
+	  }
+	  else {
+	    indexLangue = 0;
+	  }
   var element= document.getElementById('somespeciesafter');
   var nbspec = data.length;
 	i = 0;
@@ -82,6 +91,14 @@ function displaySpecies_BS() {
 	}
 }
 
+
+function redisplaySpecies_BS(){
+	var node= document.getElementById("somespeciesafter");
+	while (node.firstChild) {
+		node.removeChild(node.firstChild);
+	}
+	displaySpecies_BS()
+}
 // // Affiche la barre qui contient les especes
 // // -----------------------------------------
 // function displaySpecies(largeur,hauteur){
