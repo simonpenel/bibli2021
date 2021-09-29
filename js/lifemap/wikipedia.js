@@ -43,6 +43,7 @@ function markofun(taxid, spname,comname, rank) {
 		getWikiDesc(spname).then(function(resu){
 			if (resu!=null) {
 				text = '<div>' + resu.extract + '</div>';
+				text += "<div style='padding-bottom:10px;text-align:right; font-size:xx-small;'>Source: <i class='fa fa-wikipedia-w'></i>ikipedia<br></div>";
 				//text += "<div style='padding-bottom:10px;text-align:right; font-size:xx-small;'><a href='https://"+wikilang+".wikipedia.org/wiki/" + spname + "' target='_blank' style='color:grey;'>"+wikimoreon+"<i class='fa fa-wikipedia-w'></i>ikipedia</a><br></div>";
 				$('#modalbody-text').append(text);	
 				if (resu.thumbnail!==undefined) {
