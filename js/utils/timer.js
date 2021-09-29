@@ -14,7 +14,9 @@ function doInactive() {
 	if (selected) {
 		degrise(selected);
 	}
-
+    //close sliding window if open
+    closebarre2()
+    //remove way between species if any
 }
 
 function resetTimer() { 
