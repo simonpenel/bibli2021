@@ -212,6 +212,8 @@ function redisplaySpecies_BS(){
 // -------------------------------------
 function selectThis() {
 	console.log("SELECT " + selected + " <==> " +this.id);
+	map.removeLayer(markersRoute);
+	map.removeLayer(polyline);
 	// micron.getEle("#me").interaction("bounce");
   // micron.getEle("."+this.id).interaction("bounce");
   // this.interaction("bounce");

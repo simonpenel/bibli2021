@@ -3,14 +3,14 @@
 			$("#route").click(function(){
 				whichpage = 1;
 				$("#route-top").show();
-//				$("#route-suggestions").show();	
-				$("#mainsearch").hide();		
+//				$("#route-suggestions").show();
+				$("#mainsearch").hide();
 				map.removeLayer(SPfocus);
 				focusorgo();
 			});
 			$("#back-to-map").click(function(){
 				$("#route-top").hide();
-//				$("#route-suggestions").hide();	
+//				$("#route-suggestions").hide();
 				$("#route-bottom").hide();
 				$("#mainsearch").show();
 				whichpage = 0;
@@ -18,7 +18,7 @@
 				map.removeLayer(markersRoute);
 				map.removeLayer(polyline);
 				//and we also clear the to and from variables
-				taxidFrom = undefined; 
+				taxidFrom = undefined;
 				taxidTo = undefined;
 				//and we empty search fields
 				$("#searchinput2").val('');
@@ -37,11 +37,11 @@
 				$(this).autocomplete('search', $(this).val())
 			})
 			$("#searchinput2").focus(function() {
-			    $("#route-bottom").hide();	
+			    $("#route-bottom").hide();
 				$(this).autocomplete('search', $(this).val())
 			})
 			$("#searchinput3").focus(function() {
-			    $("#route-bottom").hide();	
+			    $("#route-bottom").hide();
 				$(this).autocomplete('search', $(this).val())
 			})
 			$("#searchinput2").keyup(function() {
@@ -108,25 +108,25 @@
 			})
 			$("#favoritesclick").click(function() {
 				var isvisible = document.getElementById("favoritesdiv");
-				var caretstate = document.getElementById("caretdown1"); 
+				var caretstate = document.getElementById("caretdown1");
 				if (isvisible.style.display === "none") {
 						isvisible.style.display = "block";
-						caretstate.className = "fa fa-caret-up fa-sm fa-fw"; 
+						caretstate.className = "fa fa-caret-up fa-sm fa-fw";
 				  } else {
 					    isvisible.style.display = "none";
-						caretstate.className = "fa fa-caret-down fa-sm fa-fw"; 
+						caretstate.className = "fa fa-caret-down fa-sm fa-fw";
 				  }
 			})
 
 			$("#settingsclick").click(function() {
 				var isvisible = document.getElementById("settingsdiv");
-				var caretstate = document.getElementById("caretdown2"); 
+				var caretstate = document.getElementById("caretdown2");
 				if (isvisible.style.display === "none") {
 						isvisible.style.display = "block";
-						caretstate.className = "fa fa-caret-up fa-sm fa-fw"; 
+						caretstate.className = "fa fa-caret-up fa-sm fa-fw";
 				  } else {
 					    isvisible.style.display = "none";
-						caretstate.className = "fa fa-caret-down fa-sm fa-fw"; 
+						caretstate.className = "fa fa-caret-down fa-sm fa-fw";
 				  }
 			})
 			$("#closelangchoice").click(function() {
@@ -165,7 +165,9 @@
 
 			$("#logohome").click(function() {
 				zoomTo(1);
-				map.removeLayer(SPfocus);    
+				map.removeLayer(markersRoute);
+				map.removeLayer(polyline);
+				map.removeLayer(SPfocus);
 				if (selected) {
       				degrise(selected);
       			}
