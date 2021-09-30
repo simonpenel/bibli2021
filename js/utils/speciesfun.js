@@ -44,11 +44,14 @@ var police_size = 10;
 				 [9622,    ["African wild dog","Lycaon"]],
 				 [9447,    ["Ring-tailed lemur ","Maki catta"]],
 				 [31869,   ["Aye-Aye","Aye-Aye"]],
-				 [5699,    ["Trypanosoma vivax","Trypanosoma vivax"]],
 				 [9993,    ["Alpine marmot","Marmotte"]],
+				 [87646,   ["Great tit","Mésange charbonnière"]],
+				 [386521,  ["Ivory-billed woodpecker","Pic à bec ivoire"]],
+				 [104452,  ["Winter moth","Phalène brumeuse"]],
 				 [7227,    ["Vinegar fly","Mouche du vinaigre"]],
 				 [28584,   ["Spotted wing drosophila","Moucheron asiatique"]],
-				 [63433,   ["Parasitoid wasp","Guêpe parasitoïde"]]
+				 [63433,   ["Parasitoid wasp","Guêpe parasitoïde"]],
+				 [5699,    ["Trypanosoma vivax","Trypanosoma vivax"]]
 				];
 
 
