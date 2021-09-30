@@ -74,7 +74,7 @@ function SwitchInterfaceToFR() {
 	//qrcode
 	$("#texteqrcode").html("<b>Téléchargez l'application Lifemap</b><br>pour prolonger l'expérience. <br><small>Scannez le QR code ci-dessous pour accéder au Play Store d'Android</small>")
 	//attribution
-	$("#attrib").html("<b>Lifemap</b> pour l'exposition \" Espèces de climat\" (2021) || Auteur : Damien M. de Vienne, CNRS, Univ-Lyon 1, LBBE | Données : NCBI | contributeurs: Simon Penel, Bruno Spataro, Stéphane Delmotte | Leaflet.js")
+	$("#attrib").html("<b>Lifemap</b> pour l'exposition \" Espèces de climat\" (2021) || Auteur : Damien de Vienne, CNRS, Univ-Lyon 1, LBBE | Données : NCBI | Contributeurs : Simon Penel, Bruno Spataro, Stéphane Delmotte | Leaflet.js")
 }
 function SwitchInterfaceToEN() {
 	//connection
