@@ -38,6 +38,12 @@ body,html {
 .leaflet-container .leaflet-control-attribution {
 	background-color: transparent;
 }
+#back-to-map {
+	color: white;
+    margin-top: -3px;
+    padding-top: 0px;
+    font-size: 26px;
+}
 
 #searchinput {
 	width: 100%;
@@ -45,6 +51,11 @@ body,html {
 	padding-right:82px;
 	font-size:18px;
 }
+#searchinput2,#searchinput3 {
+	font-size: 17px;
+}
+
+
 #searchclear {
 	position: absolute;
     right: 50px;
