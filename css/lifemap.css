@@ -45,6 +45,14 @@ body,html {
     font-size: 26px;
 }
 
+#topleft {
+	min-height: 10em;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+
 #searchinput {
 	width: 100%;
 	padding-left:11px;
