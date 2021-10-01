@@ -28,7 +28,8 @@
  		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap" rel="stylesheet">
 		<!--ICONES GOOGLE -->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<!--Ajout Simon-->
@@ -59,13 +60,20 @@
 
 
 
-	<div id="helpdiv" style="position: absolute; width:100%; height:100%; background-color: rgba(0, 0, 0, 0.6); z-index: 1000;">
-		<div id="helpdivtextcenter" style="position: absolute; width:100%; height:100%; padding: 25%;">BLABLA</div>
+	<div id="helpdiv" onclick="closehelp();" style="display: none;">
+		<div id="helpdivtextcenter" style="position: absolute; width:100%; height:100%; padding: 25%;"></div>
 		<div style="position: absolute; left:19%; top:19%;"><img src="img/img-help/topleft.png" width='100px'></div>
-		<div id="topleft" style="position: absolute; left:19%; top:19%;">ICI JE PEUX METTRE TOUT LE TEXTE QUE JE SOUHAITE</div>
 		<div style="position: absolute; right:5px; top:5px;"><img src="img/img-help/topright.png" width='100px'></div>
 		<div style="position: absolute; left:371px; bottom:45px;"><img src="img/img-help/bottomleft.png" width='200px'></div>
 		<div style="position: absolute; left:873px; top:629px;"><img src="img/img-help/center.png" width='200px'></div>
+
+		<div id="topleftdiv"><span id="toplefttext" class="vertical-center">Affichez le "chemin" entre deux espèces et identifiez leur ancêtre commun le plus récent</span></div>
+		<div id="bottomleftdiv"><span id="bottomlefttext" class="vertical-center">Accédez aux différentes espèces que vous avez croisées dans l'exposition "Espèces de Climat"</span></div>
+		<div id="centerdiv"><span id="centertext" class="vertical-center">Cliquez sur les pastilles aux noeuds de l'arbre pour plus d'information sur les espèces et les groupes d'espèces (source : Wikipedia)</span></div>
+		<div id="toprightdiv1"><span id="toprighttext1" class="vertical-center text1">Changez la langue</span></div>
+		<div id="toprightdiv2"><span id="toprighttext2" class="vertical-center text2">Affichez cette page d'aide</span></div>
+		<div id="toprightdiv3"><span id="toprighttext3" class="vertical-center text3">Téléchargez l'application Lifemap (Android)</span></div>			
+		<div id="toprightdiv4"><span id="toprighttext4" class="vertical-center text4">Vous êtes perdu.e ? Cliquez ici pour retrouver la vue globale</span></div>
 	</div>
 			<!-- SMALL DIV POPUP TO SAY ADDED TO FAVORITES DONE-->
 <!-- 		<div id="InfoFavo" style="display:none;"><span id="nameofaddedspecies"></span>&nbsp;<span id="removeoradded"></span></div>

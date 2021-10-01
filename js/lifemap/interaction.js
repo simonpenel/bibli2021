@@ -175,6 +175,10 @@
 			})
 
 			$("#logohome").click(function() {
+				gohome()
+			})
+
+			function gohome() {
 				zoomTo(1);
 				map.removeLayer(markersRoute);
 				map.removeLayer(polyline);
@@ -182,15 +186,28 @@
 				if (selected) {
       				degrise(selected);
       			}
-			})
 
-
+			}
 			function BackToInitialStep() {
+				gohome();
 				closebarre2();
 				$("#back-to-map").click();
 				$("#searchclear").click();
+				$('.modal').modal('hide'); //close all modals
+				closehelp();
 			}
 
 			function displayQRcode() {
 				$("#qrcode").modal("toggle");
 			}
+			//HELP BUTTON AND DIV ACTION
+			function openhelp() {
+				BackToInitialStep()
+				document.getElementById("helpdiv").style.display="block";
+			}
+			function closehelp() {
+				document.getElementById("helpdiv").style.display="none";
+			}
+			$("#logohelp").click(function() {
+	      		openhelp()
+			})

@@ -9,13 +9,6 @@ function startTimer() {
 function doInactive() {
     // does whatever you need it to actually do - probably signs them out or stops polling the server for info
 	console.log("Session inactive, back to root");
-	zoomTo(1);
-	map.removeLayer(markersRoute);
-	map.removeLayer(polyline);
-	map.removeLayer(SPfocus);
-	if (selected) {
-		degrise(selected);
-	}
     //get back to initial step
     BackToInitialStep()
 
