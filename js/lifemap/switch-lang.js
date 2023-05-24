@@ -69,12 +69,12 @@ function SwitchInterfaceToFR() {
 	$("#tuto-page5").html("")
 	//texte expo
 	$("#texteaccrochefds").html("Explorez avec Lifemap les liens de parenté entre toutes les espèces du monde vivant...")
-	$("#textequickaccess").html("Accédez rapidement aux espèces vues dans l'exposition !")
-	$("#textequickaccess2").html("Accédez rapidement aux espèces vues dans l'exposition !")
+	$("#textequickaccess").html("Accédez rapidement à vos espèces préférées !")
+	$("#textequickaccess2").html("Accédez rapidement à vos espèces préférées  !")
 	//qrcode
 	$("#texteqrcode").html("<b>Téléchargez l'application Lifemap</b><br>pour prolonger l'expérience. <br><small>Scannez le QR code ci-dessous pour accéder au Play Store d'Android</small>")
 	//attribution
-	$("#attrib").html("<b>Lifemap</b> pour l'exposition \" Espèces de climat\" (2021) || Auteur : Damien de Vienne, CNRS, Univ-Lyon 1, LBBE | Données : NCBI | Contributeurs : Simon Penel, Bruno Spataro, Stéphane Delmotte | Leaflet.js")
+	$("#attrib").html("<b>Lifemap</b> pour la fête de la Science (2022) || Auteur : Damien de Vienne, CNRS, Univ-Lyon 1, LBBE | Données : NCBI | Contributeurs : Simon Penel, Bruno Spataro, Stéphane Delmotte | Leaflet.js")
 }
 function SwitchInterfaceToEN() {
 	//connection
@@ -133,13 +133,13 @@ function SwitchInterfaceToEN() {
 	$("#tuto-page4").html("Lifemap was written and is maintained by Damien de Vienne. Servers hosting Lifemap are provided by the Laboratory of Biometry and Evolutionary Biology (LBBE, Lyon, France). Technical support concerning these servers is ensured by Bruno Spataro and Stephane Delmotte.")
 	$("#tuto-page5").html("<span xmlns:dct='http://purl.org/dc/terms/'' property='dct:title'>Lifemap</span> is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc/4.0/'>Creative Commons Attribution-NonCommercial 4.0 International License</a>.")
 	//texte expo
-	$("#texteaccrochefds").html("Explore with Lifemap the evolutionary links connecting all species on earth...")
-	$("#textequickaccess").html("Quick access to the species seen in the exhibition!")
-	$("#textequickaccess2").html("Quick access to the species seen in the exhibition!")
+	$("#texteaccrochefds").html("Explore with Lifemap the<br>evolutionary links connecting<br>all species on earth...")
+	$("#textequickaccess").html("Quick access to your favorite species!")
+	$("#textequickaccess2").html("Quick access to your favorite species!")
 	//qr code
 	$("#texteqrcode").html("<b>Download the Lifemap App</b><br>to keep exploring the Tree of Life! <br><small>Scan the QR code below and download it on the Android Play Store</small>")
 	//attribution
-	$("#attrib").html("<b>Lifemap</b> for the 2021 exhibition \" Espèces de climat\" || Author: Damien M. de Vienne, CNRS, Univ-Lyon 1, LBBE | Data: NCBI | contributors: Simon Penel, Bruno Spataro, Stéphane Delmotte | Leaflet.js")
+	$("#attrib").html("<b>Lifemap</b> for the 2022 Science festival || Author: Damien M. de Vienne, CNRS, Univ-Lyon 1, LBBE | Data: NCBI | contributors: Simon Penel, Bruno Spataro, Stéphane Delmotte | Leaflet.js")
 
 }
 function SwitchTreeVersion(treeversion) {
