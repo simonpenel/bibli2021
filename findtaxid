@@ -1,0 +1,10 @@
+export nf=`wc -l microorganisme.english.txt|cut -f1 -d" "`
+rm taxids
+for ((i=1 ; $nf - $i + 1 ; i++))
+do 
+echo $i
+head -$i microorganisme.english.txt|tail -1 > toto
+export sp=`cat toto`
+echo $sp
+/home/simon/.local/bin/ete3  ncbiquery --search "$sp" --info |cut -f1,2|grep -v Taxid >> taxids
+done

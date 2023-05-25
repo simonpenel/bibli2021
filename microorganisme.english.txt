@@ -1,0 +1,60 @@
+Homo sapiens
+Saccharomyces cerevisiae
+Lactobacillus bulgaricus
+Streptococcus
+Lactococcus
+Penicillium roqueforti 
+Oenococcus oeni
+Acetobacter aceti
+Acarus siro
+*Ciron acarien du fromage
+Dermatophagoides pteronyssinus
+*Acarien des poussières
+Prochlorococcus
+Vibrio harveyi
+Candidatus Pelagibacter
+Shewanella oneidensis
+Hydra
+Isthmia enervis
+Calocyclas monumentum
+Symbiodinium microadriaticum
+Photoblepharon steinitzi
+Tardigrada
+Ostracoda
+Cladocera
+Paramecium
+Rotifera
+Hydrachnidia 
+Magnetospirillum gryphiswaldense
+Physarum polycephalum
+Pseudomonas Syringae
+Trichoderma harzianum
+Desulfobacterium cathecholicum
+Deinococcus radiodurans
+Chroococcidiopsis
+Pantoea agglomerans
+Hyalosphenia papilio
+Aureobasidium pullulans
+Rhizobium leguminorasum
+Agrobacterium tumefaciens
+Collembola
+Oribatida
+Gamasina
+Armadillidium vulgare
+Lumbricus terrestris
+Nematoda
+Formica rufa
+Pseudoscorpiones 
+Lithobius fortificatus
+Morganella morganii
+Demodex folliculorum
+Akkermansia muciniphila
+Methanobrevibacter smithii
+Lactococcus lactis
+Lactobacillus parabifidus
+Staphylococcus epidermidis
+Saccharomyces cerevisiae
+Vibrio cholerae
+Yersinia pestis
+Staphylococcus aureus
+Escherichia coli
