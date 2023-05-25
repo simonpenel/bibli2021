@@ -35,7 +35,7 @@ Chroococcidiopsis
 Pantoea agglomerans
 Hyalosphenia papilio
 Aureobasidium pullulans
-Rhizobium leguminorasum
+Rhizobium leguminosarum
 Agrobacterium tumefaciens
 Collembola
 Oribatida
@@ -45,7 +45,7 @@ Lumbricus terrestris
 Nematoda
 Formica rufa
 Pseudoscorpiones 
-Lithobius fortificatus
+Lithobius forficatus
 Morganella morganii
 Demodex folliculorum
 Akkermansia muciniphila
