@@ -268,11 +268,11 @@ p {
 	float: none;
 }
 
-#leftdiv {
+#bottomdiv {
 	position: absolute;
-	height:100%;
-	width:25%;
-	top: 0;
+	height:40%;
+	width:100%;
+	bottom: 0;
 	left: 0;
 	z-index:10;
 	background-image: url("../img/espece-climat_bg_left.png");
@@ -287,31 +287,31 @@ p {
 
 /* The animation of the sliding of barre2*/
 @keyframes slideinout {
-  from {left: 10%;} /*Same as width of leftdiv*/
-  to {left: 25%;} /*Same as width of leftdiv*/
+  from {bottom: 10%;} /*Same as width of leftdiv*/
+  to {bottom: 25%;} /*Same as width of leftdiv*/
 }
 
 #barre2 { /*nouvelle div pour les espèces*/
 	position: absolute;
-	width: 15%;
-	height: 100%;
+	width: 100%;
+	height: 15%;
 	background-color: #c77f8b;
 }
 .barreisclosed {
-	left: 10%; 
+	bottom: 10%; 
 /*	animation-name: slideinout;
   	animation-duration: 2s;
   	animation-direction: reverse;
 
 */
-	transition: left 2s;
+	transition: bottom 2s;
 	}
 .barreisopen {
-	left: 25%; 
+	bottom: 25%; 
 /*	animation-name: slideinout;
   	animation-duration: 2s;
 */  	
-	transition: left 2s;
+	transition: bottom 2s;
 }
 
 
