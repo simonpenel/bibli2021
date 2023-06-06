@@ -294,11 +294,11 @@ p {
 #barre2 { /*nouvelle div pour les espèces*/
 	position: absolute;
 	width: 100%;
-	height: 25%;
+	height: 35%;
 	background-color: #c77f8b;
 }
 .barreisclosed {
-	bottom: 10%;
+	bottom: 0%;
 /*	animation-name: slideinout;
   	animation-duration: 2s;
   	animation-direction: reverse;
