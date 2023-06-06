@@ -164,6 +164,32 @@
 				}
 			}
 
+
+      function closebarre3() {
+        var caretstate = document.getElementById("carretstatehalfbut3");
+        var spdivstate = document.getElementById("barre3");
+        if (spdivstate.className==="barreisopen") {
+          caretstate.className = "fa fa-caret-up";
+          spdivstate.className = "barreisclosed";
+          $(".halfcirclediv3").css("padding-right","16px");
+          $(".bottomleftdivfortext").show();
+          $("#map").css({"height":"75%","transition": "width 2s"});
+          setTimeout(function(){ map.invalidateSize({animate:true})}, 2000);
+        }
+      }
+      function openbarre3() {
+        var caretstate = document.getElementById("carretstatehalfbut3");
+        var spdivstate = document.getElementById("barre3");
+        if (spdivstate.className==="barreisclosed") {
+          caretstate.className = "fa fa-caret-down";
+          spdivstate.className = "barreisopen";
+          $(".halfcirclediv3").css("padding-right","16px");
+          $(".bottomleftdivfortext").hide();
+          $("#map").css({"height":"60%","transition": "width 2s"});
+          setTimeout(function(){ map.invalidateSize({animate:true})}, 2000);
+        }
+      }
+
 			$(".halfcirclediv").click(function() {
 				var spdivstate = document.getElementById("barre2");
 				if (spdivstate.className==="barreisclosed") { // OPEN IT
@@ -171,6 +197,17 @@
 				}
 				else { // CLOSE IT
 					closebarre2()
+				}
+			})
+
+
+      $(".halfcirclediv3").click(function() {
+				var spdivstate = document.getElementById("barre3");
+				if (spdivstate.className==="barreisclosed") { // OPEN IT
+					openbarre3()
+				}
+				else { // CLOSE IT
+					closebarre3()
 				}
 			})
 

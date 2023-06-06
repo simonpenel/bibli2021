@@ -297,6 +297,14 @@ p {
 	height: 35%;
 	background-color: #c77f8b;
 }
+
+#barre3 { /*nouvelle div pour les espèces*/
+	position: absolute;
+	width: 100%;
+	height: 35%;
+	background-color: green;
+}
+
 .barreisclosed {
 	bottom: 0%;
 /*	animation-name: slideinout;
@@ -335,6 +343,29 @@ p {
   position : absolute;
   /* right: 0px; */
     left: 50%;
+  margin-top: -30px;
+  top: -40px;
+  text-align: right;
+  line-height:100px;
+  font-size: 80px;
+  padding-right: 16px;
+  padding-top: -30px;
+  color: black;
+  z-index: 5;
+/*  box-shadow: 0 0 10px black;*/
+}
+
+/*CODE CONCERNING THE HALF CIRCLE BUTTON*/
+.halfcirclediv3 {
+  height: 100px;
+  width: 80px;
+  /* border-bottom-right-radius: 100px; */
+  border-top-right-radius: 100px;
+  border-top-left-radius: 100px;
+  background-color: green;
+  position : absolute;
+  /* right: 0px; */
+    left: 40%;
   margin-top: -30px;
   top: -40px;
   text-align: right;
