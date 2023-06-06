@@ -70,7 +70,12 @@ function SwitchInterfaceToFR() {
 	//texte expo
 	$("#texteaccrochefds").html("Explorez avec Lifemap les liens de parenté entre toutes les espèces du monde vivant...")
 	$("#textequickaccess").html("Accédez rapidement à vos espèces préférées !")
-	$("#textequickaccess2").html("Accédez rapidement à vos espèces préférées  !")
+	$("#textequickaccess2").html("Le sol de nos forêts")
+  $("#textequickaccess3").html("Le corps humain")
+  $("#textequickaccess4").html("Dans la cuisine")
+  $("#textequickaccess5").html("L'eau")
+
+
 	//qrcode
 	$("#texteqrcode").html("<b>Téléchargez l'application Lifemap</b><br>pour prolonger l'expérience. <br><small>Scannez le QR code ci-dessous pour accéder au Play Store d'Android</small>")
 	//attribution

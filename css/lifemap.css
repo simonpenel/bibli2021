@@ -373,7 +373,7 @@ p {
   background-color: #c77f8b;
   position : absolute;
   /* right: 0px; */
-    left: 50%;
+    left: 60%;
   margin-top: -30px;
   top: -40px;
   text-align: right;
@@ -396,7 +396,7 @@ p {
   background-color: green;
   position : absolute;
   /* right: 0px; */
-    left: 40%;
+    left: 70%;
   margin-top: -30px;
   top: -40px;
   text-align: right;
@@ -419,7 +419,7 @@ p {
   background-color: yellow;
   position : absolute;
   /* right: 0px; */
-    left: 30%;
+    left: 80%;
   margin-top: -30px;
   top: -40px;
   text-align: right;
@@ -442,7 +442,7 @@ p {
   background-color: blue;
   position : absolute;
   /* right: 0px; */
-    left: 20%;
+    left: 90%;
   margin-top: -30px;
   top: -40px;
   text-align: right;
