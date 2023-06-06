@@ -143,9 +143,9 @@
 				var caretstate = document.getElementById("carretstatehalfbut");
 				var spdivstate = document.getElementById("barre2");
 				if (spdivstate.className==="barreisopen") {
-					caretstate.className = "fa fa-caret-right";
+					caretstate.className = "fa fa-caret-up";
 					spdivstate.className = "barreisclosed";
-					$(".halfcirclediv").css("padding-right","11px");
+					$(".halfcirclediv").css("padding-right","16px");
 					$(".bottomleftdivfortext").show();
 					$("#map").css({"width":"75%","transition": "width 2s"});
 					setTimeout(function(){ map.invalidateSize({animate:true})}, 2000);
@@ -155,9 +155,9 @@
 				var caretstate = document.getElementById("carretstatehalfbut");
 				var spdivstate = document.getElementById("barre2");
 				if (spdivstate.className==="barreisclosed") {
-					caretstate.className = "fa fa-caret-left";
+					caretstate.className = "fa fa-caret-down";
 					spdivstate.className = "barreisopen";
-					$(".halfcirclediv").css("padding-right","18px");
+					$(".halfcirclediv").css("padding-right","16px");
 					$(".bottomleftdivfortext").hide();
 					$("#map").css({"width":"60%","transition": "width 2s"});
 					setTimeout(function(){ map.invalidateSize({animate:true})}, 2000);

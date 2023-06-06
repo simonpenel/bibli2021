@@ -86,18 +86,19 @@ function displaySpecies_BS() {
 		var divLine = document.createElement("div");
 		divLine.setAttribute("class","row");
 		divLine.setAttribute("style", "padding:10px; margin: 0px");
-		for (col = 0; col <3; col ++ ) {
+		for (col = 0; col <8; col ++ ) {
 			if (i >= nbspec) {
 				break;
 			}
 			var divCol = document.createElement("div");
-			divCol.setAttribute("class","col-xs-4");
+			divCol.setAttribute("class","col-xs-2");
 			var fig = document.createElement("figure");
 			fig.setAttribute("class","figure");
 			var divImage = document.createElement("img");
 			imageName = data[i];
 	  	divImage.setAttribute("src", pictureDir+"/"+imageName+".jpg");
-	  	divImage.setAttribute("style", "width:100%");
+	  	// divImage.setAttribute("style", "width:100%");
+      divImage.setAttribute("style", "width:10px");
 	  	divImage.setAttribute("id", imageName);
 	  	divImage.setAttribute("class","figure-img img-fluid rounded");
 	  	divImage.setAttribute("data-micron","tada");
