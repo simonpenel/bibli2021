@@ -147,7 +147,7 @@
 					spdivstate.className = "barreisclosed";
 					$(".halfcirclediv").css("padding-right","16px");
 					$(".bottomleftdivfortext").show();
-					$("#map").css({"width":"75%","transition": "width 2s"});
+					$("#map").css({"height":"75%","transition": "width 2s"});
 					setTimeout(function(){ map.invalidateSize({animate:true})}, 2000);
 				}
 			}
@@ -159,7 +159,7 @@
 					spdivstate.className = "barreisopen";
 					$(".halfcirclediv").css("padding-right","16px");
 					$(".bottomleftdivfortext").hide();
-					$("#map").css({"width":"60%","transition": "width 2s"});
+					$("#map").css({"height":"60%","transition": "width 2s"});
 					setTimeout(function(){ map.invalidateSize({animate:true})}, 2000);
 				}
 			}
