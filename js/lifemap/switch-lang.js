@@ -175,7 +175,10 @@ function chooselang(x) {
 		//WE STORE THE NEW COMBINATION OF CHOICES FOR LATER START.
 		savelang = $("#interfacelang > .selectedlang").attr('id')+"+"+$("#treelang > .selectedlang").attr('id')+"+"+$("#wikilang > .selectedlang").attr('id');
 		window.localStorage.setItem("lang", savelang);
-		redisplaySpecies_BS();
+		redisplaySpecies_BS("somespeciesafter",0);
+    redisplaySpecies_BS("somespeciesafter3",1);
+    redisplaySpecies_BS("somespeciesafter4",2);
+    redisplaySpecies_BS("somespeciesafter5",3);
 	}
 	else {
 		console.log("rien à faire")

@@ -30,18 +30,7 @@ var police_size = 10;
 		// ];
 
 
-		var arraySpecies = [
-				 [9606,    ["Human","Humain"]],
-				 [10090,   ["House mouse","Souris grise"]],
-				 [59546,   ["Topi","Topi du Serengeti"]],
-				 [85517,   ["Desert warthog ","Phacochère commun"]],
-				 [9927,    ["Blue wildebeest ","Gnou bleu"]],
-				 [9970,    ["African buffalo","Buffle d'Afrique"]],
-				 [9785,    ["African bush elephant ","Eléphant d'Afrique"]],
-				 [9689,    ["Lion","Lion"]],
-				 [9678,    ["Spotted hyena","Hyène tachetée"]],
-				 [94188,   ["Fossa","Fossa"]],
-				 [9622,    ["African wild dog","Lycaon"]],
+		var arraySpecies2 = [
 				 [9447,    ["Ring-tailed lemur ","Maki catta"]],
 				 [31869,   ["Aye-Aye","Aye-Aye"]],
 				 [9993,    ["Alpine marmot","Marmotte"]],
@@ -54,22 +43,80 @@ var police_size = 10;
 				 [5699,    ["Trypanosoma vivax","Trypanosoma vivax"]]
 				];
 
+    var arraySpecies3 = [
+    		 [9606,    ["Human","Humain"]],
+				 [10090,   ["House mouse","Souris grise"]],
+				 [59546,   ["Topi","Topi du Serengeti"]],
+				 [85517,   ["Desert warthog ","Phacochère commun"]],
+				 [9927,    ["Blue wildebeest ","Gnou bleu"]],
+     ];
+
+    var arraySpecies4 = [
+  			 [9970,    ["African buffalo","Buffle d'Afrique"]],
+      	 [9785,    ["African bush elephant ","Eléphant d'Afrique"]],
+      	 [9689,    ["Lion","Lion"]],
+      	 [9678,    ["Spotted hyena","Hyène tachetée"]],
+      	 [94188,   ["Fossa","Fossa"]],
+      	 [9622,    ["African wild dog","Lycaon"]],
+    	];
+
+      var arraySpecies5 = [
+    			 [9970,    ["African buffalo","Buffle d'Afrique"]],
+        	 [9785,    ["African bush elephant ","Eléphant d'Afrique"]],
+        	 [9689,    ["Lion","Lion"]],
+        	 [9678,    ["Spotted hyena","Hyène tachetée"]],
+        	 [94188,   ["Fossa","Fossa"]],
+        	 [9622,    ["African wild dog","Lycaon"]],
+           [9606,    ["Human","Humain"]],
+  				 [10090,   ["House mouse","Souris grise"]],
+  				 [59546,   ["Topi","Topi du Serengeti"]],
+  				 [85517,   ["Desert warthog ","Phacochère commun"]],
+  				 [9927,    ["Blue wildebeest ","Gnou bleu"]],
+           [9447,    ["Ring-tailed lemur ","Maki catta"]],
+  				 [31869,   ["Aye-Aye","Aye-Aye"]],
+  				 [9993,    ["Alpine marmot","Marmotte"]],
+  				 [9157,   ["Great tit","Mésange charbonnière"]],
+      	];
+
 
 // Cree une map a partir du tableau
 // On utilise une map pour preserver
 // l'ordre des donnees ce qui n'est
 // pas possible avec un dictionnaire.
-var mapSpecies = new Map(arraySpecies);	var dicoSpecies = {};
-var data = [];
-mapSpecies.forEach(function(valeur, clef) {
-  data.push(clef);
+var mapSpecies2 = new Map(arraySpecies2);	var dicoSpecies = {};
+var data2 = [];
+mapSpecies2.forEach(function(valeur, clef) {
+  data2.push(clef);
+  dicoSpecies[clef]=valeur;
+});
+
+var mapSpecies3 = new Map(arraySpecies3);
+var data3 = [];
+mapSpecies3.forEach(function(valeur, clef) {
+  data3.push(clef);
+  dicoSpecies[clef]=valeur;
+});
+
+var mapSpecies4 = new Map(arraySpecies4);
+var data4 = [];
+mapSpecies4.forEach(function(valeur, clef) {
+  data4.push(clef);
   dicoSpecies[clef]=valeur;
 });
 
 
+var mapSpecies5 = new Map(arraySpecies5);
+var data5 = [];
+mapSpecies5.forEach(function(valeur, clef) {
+  data5.push(clef);
+  dicoSpecies[clef]=valeur;
+});
+
+var datas = [data2,data3,data4,data5];
 // Affiche la barre qui contient les especes
 // -----------------------------------------
-function displaySpecies_BS() {
+function displaySpecies_BS(somespeciesafter,d) {
+    var data = datas[d];
 		var lang = document.getElementById('interfacelang');
 		var lang2 = lang.getElementsByClassName('row selectedlang');
 		console.log("LANGAGE IS "+lang2[0].id);
@@ -79,7 +126,8 @@ function displaySpecies_BS() {
 	  else {
 	    indexLangue = 0;
 	  }
-  var element= document.getElementById('somespeciesafter');
+  // var element= document.getElementById('somespeciesafter');
+    var element= document.getElementById(somespeciesafter);
   var nbspec = data.length;
   // nbspec= 8;
 	i = 0;
@@ -120,12 +168,13 @@ function displaySpecies_BS() {
 }
 
 
-function redisplaySpecies_BS(){
-	var node= document.getElementById("somespeciesafter");
+function redisplaySpecies_BS(somespeciesafter,d){
+	// var node= document.getElementById("somespeciesafter");
+  	var node= document.getElementById(somespeciesafter);
 	while (node.firstChild) {
 		node.removeChild(node.firstChild);
 	}
-	displaySpecies_BS()
+	displaySpecies_BS(somespeciesafter,d)
 }
 // // Affiche la barre qui contient les especes
 // // -----------------------------------------
