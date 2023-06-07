@@ -30,8 +30,8 @@ var police_size = 10;
 		// ];
 
 
-		var arraySpecies2 = [
-				 [9447,    ["Ring-tailed lemur ","Maki catta"]],
+		var arraySpecies2 = [];
+/*				 [9447,    ["Ring-tailed lemur ","Maki catta"]],
 				 [31869,   ["Aye-Aye","Aye-Aye"]],
 				 [9993,    ["Alpine marmot","Marmotte"]],
 				 [9157,   ["Great tit","Mésange charbonnière"]],
@@ -41,42 +41,48 @@ var police_size = 10;
 				 [28584,   ["Spotted wing drosophila","Moucheron asiatique"]],
 				 [63433,   ["Parasitoid wasp","Guêpe parasitoïde"]],
 				 [5699,    ["Trypanosoma vivax","Trypanosoma vivax"]]
-				];
+				];*/
 
-    var arraySpecies3 = [
-    		 [9606,    ["Human","Humain"]],
+    var arraySpecies3 = [];
+/*    		 [9606,    ["Human","Humain"]],
 				 [10090,   ["House mouse","Souris grise"]],
 				 [59546,   ["Topi","Topi du Serengeti"]],
 				 [85517,   ["Desert warthog ","Phacochère commun"]],
 				 [9927,    ["Blue wildebeest ","Gnou bleu"]],
-     ];
+     ];*/
 
+
+    /*Cuisine*/
     var arraySpecies4 = [
-  			 [9970,    ["African buffalo","Buffle d'Afrique"]],
-      	 [9785,    ["African bush elephant ","Eléphant d'Afrique"]],
-      	 [9689,    ["Lion","Lion"]],
-      	 [9678,    ["Spotted hyena","Hyène tachetée"]],
-      	 [94188,   ["Fossa","Fossa"]],
-      	 [9622,    ["African wild dog","Lycaon"]],
+  			 [4932,    ["Saccharomyces cerevisia","Saccharomyces cerevisia"]],
+      	 [1585,    ["Lactobacillus bulgaricus","Lactobacillus bulgaricus"]],
+      	 [1301,    ["Streptococcus","Streptococcus"]],
+      	 [1357,    ["Lactococcus","Lactococcus"]],
+      	 [5082,    ["Penicillium roqueforti","Penicillium roqueforti"]],
+      	 [1247,    ["Oenococcus oeni","Oenococcus oeni"]],
+      	 [435,    ["Acetobacter aceti","Acetobacter aceti"]],
+      	 [66546,    ["Acarus siro","Acarien du fromage"]],
+      	 [6956,    ["Dermatophagoides pteronyssinus","Acarien des poussières"]],
     	];
 
-      var arraySpecies5 = [
-    			 [9970,    ["African buffalo","Buffle d'Afrique"]],
-        	 [9785,    ["African bush elephant ","Eléphant d'Afrique"]],
-        	 [9689,    ["Lion","Lion"]],
-        	 [9678,    ["Spotted hyena","Hyène tachetée"]],
-        	 [94188,   ["Fossa","Fossa"]],
-        	 [9622,    ["African wild dog","Lycaon"]],
-           [9606,    ["Human","Humain"]],
-  				 [10090,   ["House mouse","Souris grise"]],
-  				 [59546,   ["Topi","Topi du Serengeti"]],
-  				 [85517,   ["Desert warthog ","Phacochère commun"]],
-  				 [9927,    ["Blue wildebeest ","Gnou bleu"]],
-           [9447,    ["Ring-tailed lemur ","Maki catta"]],
-  				 [31869,   ["Aye-Aye","Aye-Aye"]],
-  				 [9993,    ["Alpine marmot","Marmotte"]],
-  				 [9157,   ["Great tit","Mésange charbonnière"]],
-      	];
+
+    /* L'eau */
+     var arraySpecies5 = [
+     		[1218,   ["Prochlorococcus","Prochlorococcus"]],
+     		[198251, ["Candidatus Pelagibacter","Candidatus Pelagibacter"]],
+     		[70863,  ["Shewanella oneidensis","Shewanella oneidensis"]],
+     		[6083,   ["Hydra","Hydre"]],
+     		[1003064,   ["Isthmia enervis","Diatomée"]],
+     		[2951,   ["Symbiodinium microadriaticum","Zooxanthelle"]],
+     		[42241,  ["Tardigrada","Tardigrade"]],
+      	[6670,   ["Ostracoda","Ostracode"]],    		
+      	[6665,   ["Cladocera","Cladocère"]],    	
+      	[5884,   ["Paramecium","Paramécie"]],   
+      	[10190,   ["Rotifera","Rotifère"]],         	
+      	[92068,   ["Hydracarina","Hydracarien"]],    
+
+      ];
+
 
 
 // Cree une map a partir du tableau
